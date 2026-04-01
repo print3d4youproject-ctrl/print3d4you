@@ -125,10 +125,8 @@
     }
 
     if (path.endsWith("/richiesta.html")) {
-      var iframe = document.querySelector("iframe[src*='tally.so/embed']");
-      if (iframe) {
-        iframe.src = appendParamsToUrl(iframe.src, attribution);
-      }
+      /* Non modifichiamo l'URL dell'iframe Tally: evita 404 e problemi con embed.
+         Gli UTM restano nell'indirizzo della pagina (link dalla home). */
       sendEvent("funnel_step", { step_name: "request_form_view" });
     }
 
