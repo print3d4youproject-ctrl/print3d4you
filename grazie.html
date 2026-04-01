@@ -1,7 +1,96 @@
-<h1>Richiesta inviata!</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Inviata | Print3D4You</title>
+    <style>
+        body {
+            font-family: -apple-system, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-<p>Grazie per aver inviato la tua richiesta di modello 3D.</p>
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            border-bottom: 3px solid #ff6a00;
+        }
 
-<p>Ti risponderò il prima possibile.</p>
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-<a href="index.html">Torna alla home</a>
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #111;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 5px 0;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #ff6a00;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #e65f00;
+        }
+
+        footer {
+            padding: 20px;
+            background: #111;
+            color: white;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-weight: bold; font-size: 1.2rem;">Print3D4You</div>
+</header>
+
+<div class="container">
+    <div class="success-icon">✅</div>
+    <h1>Richiesta inviata!</h1>
+    <p>Grazie per aver inviato la tua richiesta di modello 3D.</p>
+    <p>Analizzerò il file e ti risponderò con un preventivo il prima possibile.</p>
+    
+    <a href="index.html" class="button">Torna alla Home</a>
+</div>
+
+<footer>
+    <p>© Print3D4You | Monitoraggio Qualità</p>
+</footer>
+
+</body>
+</html>
