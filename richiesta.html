@@ -2,32 +2,114 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Richiedi un modello 3D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invia Richiesta | Print3D4You</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; }
-        iframe { border: 1px solid #eee; border-radius: 8px; }
+        :root {
+            --primary: #ff6a00;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: var(--dark); /* Sfondo scuro per far risaltare il form */
+            color: white;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--dark);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .container {
+            flex: 1;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            width: 95%;
+        }
+
+        .form-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .info-text {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        iframe {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Richiedi il tuo modello 3D</h1>
-    <p>Compila il form qui sotto per richiedere un modello personalizzato.</p>
+<header>
+    <div style="font-size: 1.5rem; font-weight: bold; letter-spacing: -1px;">Print3D4You</div>
+</header>
 
-    <iframe 
-        src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1" 
-        loading="lazy" 
-        width="100%" 
-        height="600" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0" 
-        title="Richiesta modello 3D">
-    </iframe>
+<div class="container">
+    <a href="index.html" class="back-link">← Torna alla Home</a>
+    
+    <h1>Richiedi il tuo modello 3D</h1>
+    <p class="info-text">Carica i tuoi file STL/OBJ e riceverai un'analisi tecnica gratuita.</p>
+
+    <div class="form-card">
+        <iframe 
+            src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1" 
+            loading="lazy" 
+            width="100%" 
+            height="700" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0" 
+            title="Richiesta modello 3D">
+        </iframe>
+    </div>
 </div>
 
 <script async src="https://tally.so/widgets/embed.js"></script>
+
+<footer>
+    <p>© 2026 Print3D4You | Processi di stampa monitorati</p>
+</footer>
 
 </body>
 </html>
