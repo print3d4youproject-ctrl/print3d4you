@@ -7,47 +7,42 @@
 <title>Print3D4You | Stampa 3D su richiesta</title>
 
 <style>
-
+/* IMPOSTAZIONI GENERALI */
 body{
 font-family:-apple-system,sans-serif;
 margin:0;
-background:#f5f5f5;
+background:#f5f5f5; /* Sfondo grigio della pagina */
 text-align:center;
 }
 
-h1{
-font-size:2rem;
-}
-
-h2{
-font-size:1.6rem;
-}
-
-p{
-line-height:1.5;
-}
+h1{ font-size:2rem; margin: 10px 0; }
+h2{ font-size:1.6rem; margin-bottom: 15px; }
+p{ line-height:1.4; margin: 10px 0; }
 
 header{
 background:#111;
 color:white;
-padding:30px;
+padding:20px;
 border-bottom:3px solid #ff6a00;
 }
 
+/* SEZIONE ERO */
 .hero{
-padding:80px 20px;
+padding:40px 20px; /* Ridotto spazio verticale */
+max-width:1100px;
+margin:auto;
 }
 
 .button{
 display:inline-block;
-margin-top:25px;
-padding:16px 40px;
+margin-top:15px;
+padding:14px 35px;
 background:#ff6a00;
 color:white;
 text-decoration:none;
 border-radius:8px;
 font-weight:bold;
-font-size:1.2rem;
+font-size:1.1rem;
 box-shadow:0 4px 10px rgba(0,0,0,0.15);
 transition:0.2s;
 }
@@ -56,64 +51,56 @@ transition:0.2s;
 background:#e65f00;
 }
 
-.how{
+/* STILE COMUNE PER I BLOCCHI BIANCHI */
+.how, .trust {
 background:white;
-padding:50px 20px;
+padding:30px 20px; /* Ridotto spazio interno */
+max-width:1100px;
+margin: 20px auto; /* Crea lo stacco grigio tra i rettangoli */
+border-radius: 12px; /* Arrotonda i blocchi bianchi */
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .steps{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-max-width:900px;
-margin:30px auto 0;
+gap:15px;
+max-width:950px;
+margin:20px auto 0;
 }
 
-/* MIGLIORIA STEP */
-
+/* STILE DEGLI ELEMENTI INTERNI */
 .step-item{
 background:#fafafa;
-padding:20px;
+padding:15px;
 border-radius:10px;
 transition:0.2s;
 }
 
 .step-item:hover{
-transform:translateY(-4px);
-box-shadow:0 6px 18px rgba(0,0,0,0.1);
+transform:translateY(-3px);
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .step-item h3{
 color:#ff6a00;
-margin-bottom:10px;
+margin: 0 0 8px 0;
+font-size: 1.2rem;
 }
 
 .step-item h4{
-margin-bottom:10px;
-}
-
-/* SEZIONE TRUST */
-
-.trust{
-background:white;
-padding:60px 20px;
+margin: 0 0 8px 0;
+font-size: 1.1rem;
 }
 
 footer{
-padding:30px;
+padding:20px;
 background:#111;
 color:white;
-margin-top:40px;
-font-size:0.9rem;
+margin-top:30px;
+font-size:0.85rem;
 }
-
-.hero,.how{
-max-width:1100px;
-margin:auto;
-}
-
 </style>
-
 </head>
 
 <body>
@@ -124,68 +111,49 @@ margin:auto;
 </header>
 
 <section class="hero">
-
 <h2>Hai un file 3D ma non una stampante?</h2>
-
 <p>Carica il tuo modello e ricevi un preventivo gratuito entro 24 ore.</p>
-
 <a class="button" href="richiesta.html">Richiedi una stampa</a>
-
 </section>
 
 <section class="how">
-
 <h2>Come funziona</h2>
-
 <div class="steps">
-
 <div class="step-item">
 <h3>1️⃣ Carica il modello</h3>
 <p>Invia il file STL o OBJ tramite il modulo.</p>
 </div>
-
 <div class="step-item">
 <h3>2️⃣ Ricevi preventivo</h3>
 <p>Analizzo il modello e ricevi il prezzo entro 24h.</p>
 </div>
-
 <div class="step-item">
 <h3>3️⃣ Paga con PayPal</h3>
-<p>Se accetti il preventivo paghi facilmente online.</p>
+<p>Se accetti il preventivo paghi online.</p>
 </div>
-
 <div class="step-item">
 <h3>4️⃣ Ricevi la stampa</h3>
-<p>Stampo e spedisco direttamente a casa tua.</p>
+<p>Stampo e spedisco direttamente a casa.</p>
 </div>
-
 </div>
-
 </section>
 
 <section class="trust">
-
 <h2>Perché scegliere Print3D4You</h2>
-
 <div class="steps">
-
 <div class="step-item">
 <h4>🧠 Esperienza tecnica</h4>
 <p>Ogni modello viene controllato prima della stampa.</p>
 </div>
-
 <div class="step-item">
 <h4>⚙️ Stampa ottimizzata</h4>
-<p>Parametri calibrati per ottenere la migliore qualità.</p>
+<p>Parametri calibrati per la migliore qualità.</p>
 </div>
-
 <div class="step-item">
 <h4>🚚 Spedizione rapida</h4>
-<p>Produzione veloce e consegna direttamente a casa.</p>
+<p>Produzione veloce e consegna a casa.</p>
 </div>
-
 </div>
-
 </section>
 
 <footer>
