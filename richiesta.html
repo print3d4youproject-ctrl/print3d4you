@@ -62,9 +62,36 @@
         }
 
         .info {
-            margin-bottom: 30px;
+            margin-bottom: 22px;
             color: #4a5a6a; /* Grigio-bluastro */
             font-size: 1rem;
+        }
+
+        .legal-mini {
+            text-align: left;
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: 20px 18px;
+            margin-bottom: 18px;
+            border: 1px solid #dee2e6;
+        }
+
+        .legal-mini h2 {
+            font-size: 1.1rem;
+            color: #0a2540;
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+
+        .legal-mini p {
+            font-size: 0.88rem;
+            color: #5a6a7a;
+            margin: 12px 0 0;
+            line-height: 1.55;
+        }
+
+        .legal-mini p:first-of-type {
+            margin-top: 0;
         }
 
         /* Card del form per renderlo più compatto */
@@ -104,6 +131,14 @@
     <h1>Richiedi il tuo modello 3D</h1>
     <p class="info">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo gratuito.</p>
 
+    <section class="legal-mini" aria-labelledby="legal-info-title">
+        <h2 id="legal-info-title">Informazioni importanti</h2>
+        <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>
+        <p>Devi avere il <strong>diritto di utilizzare il modello</strong> che invii: non trattiamo richieste che violano legge o diritti di terzi.</p>
+        <p>Il <strong>preventivo non è un ordine vincolante</strong> finché non confermi esplicitamente. Tempi di risposta e di produzione sono indicativi e possono variare in base a complessità del pezzo, disponibilità e corriere.</p>
+        <p>Per qualsiasi chiarimento sul servizio, usa il modulo di richiesta: è il canale ufficiale per nuove commesse.</p>
+    </section>
+
     <div class="form-card">
         <iframe 
             src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1" 
@@ -121,7 +156,7 @@
 <script async src="https://tally.so/widgets/embed.js"></script>
 
 <footer>
-    <p>© Print3D4You | Qualità e Revisione Processi</p>
+    <p>© Print3D4You</p>
 </footer>
 
 </body>
