@@ -53,13 +53,14 @@
   }
 
   function appendParamsToUrl(url, params) {
-    var u = new URL(url, window.location.origin);
+    var u = new URL(url, window.location.href);
     Object.keys(params).forEach(function (key) {
       if (params[key] && !u.searchParams.get(key)) {
         u.searchParams.set(key, params[key]);
       }
     });
-    return u.pathname + u.search + u.hash;
+    /* Always return full URL so iframe/embed (e.g. tally.so) is not loaded from our domain. */
+    return u.href;
   }
 
   function isValidMeasurementId(id) {
