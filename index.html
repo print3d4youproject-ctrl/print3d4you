@@ -11,55 +11,68 @@
 body{
 font-family:-apple-system,sans-serif;
 margin:0;
-background:#f5f5f5; /* Sfondo grigio della pagina */
+background:#f5f5f5;
 text-align:center;
+color: #333;
 }
 
-h1{ font-size:2rem; margin: 10px 0; }
-h2{ font-size:1.6rem; margin-bottom: 15px; }
+h1{ font-size:2.2rem; margin: 5px 0; }
+h2{ font-size:1.5rem; margin-bottom: 10px; }
 p{ line-height:1.4; margin: 10px 0; }
 
 header{
 background:#111;
 color:white;
-padding:20px;
+padding:25px;
 border-bottom:3px solid #ff6a00;
 }
 
-/* SEZIONE ERO */
+/* SEZIONE HERO - PIÙ IMPORTANZA AL CENTRO */
 .hero{
-padding:40px 20px; /* Ridotto spazio verticale */
+padding:80px 20px; /* Aumentato spazio per isolare il bottone */
 max-width:1100px;
 margin:auto;
 }
 
+.hero h2 {
+    font-size: 2rem; /* Più grande per catturare l'attenzione */
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
 .button{
 display:inline-block;
-margin-top:15px;
-padding:14px 35px;
+padding:20px 50px; /* Bottone più grande e importante */
 background:#ff6a00;
 color:white;
 text-decoration:none;
-border-radius:8px;
+border-radius:10px;
 font-weight:bold;
-font-size:1.1rem;
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-transition:0.2s;
+font-size:1.3rem;
+box-shadow: 0 10px 20px rgba(255, 106, 0, 0.3); /* Ombra colorata per farlo "staccare" */
+transition: 0.3s;
 }
 
 .button:hover{
 background:#e65f00;
+transform: scale(1.05); /* Effetto ingrandimento al passaggio */
 }
 
-/* STILE COMUNE PER I BLOCCHI BIANCHI */
+/* BLOCCHI BIANCHI */
 .how, .trust {
 background:white;
-padding:30px 20px; /* Ridotto spazio interno */
 max-width:1100px;
-margin: 20px auto; /* Crea lo stacco grigio tra i rettangoli */
-border-radius: 12px; /* Arrotonda i blocchi bianchi */
-box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+margin: 20px auto;
+border-radius: 12px;
+overflow: hidden;
 }
+
+.how { padding: 40px 20px; }
 
 .steps{
 display:grid;
@@ -69,28 +82,52 @@ max-width:950px;
 margin:20px auto 0;
 }
 
-/* STILE DEGLI ELEMENTI INTERNI */
 .step-item{
 background:#fafafa;
 padding:15px;
 border-radius:10px;
-transition:0.2s;
-}
-
-.step-item:hover{
-transform:translateY(-3px);
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .step-item h3{
 color:#ff6a00;
-margin: 0 0 8px 0;
-font-size: 1.2rem;
+margin: 0 0 5px 0;
+font-size: 1.1rem;
 }
 
-.step-item h4{
-margin: 0 0 8px 0;
-font-size: 1.1rem;
+/* SEZIONE TRUST - APPIATTITA E RIMPICCIOLITA */
+.trust {
+    padding: 20px; /* Molto meno alta */
+    background: #fff;
+    border: 1px solid #eee; /* Leggero bordo per definirla senza appesantirla */
+}
+
+.trust h2 {
+    font-size: 1rem; /* Titolo molto più piccolo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.trust .steps {
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.trust .step-item {
+    background: transparent; /* Rimosso sfondo grigio per appiattire */
+    padding: 5px;
+}
+
+.trust .step-item h4 {
+    font-size: 0.9rem; /* Carattere rimpicciolito */
+    margin-bottom: 2px;
+}
+
+.trust .step-item p {
+    font-size: 0.8rem; /* Testo descrittivo piccolo */
+    color: #777;
+    margin: 0;
 }
 
 footer{
@@ -98,7 +135,7 @@ padding:20px;
 background:#111;
 color:white;
 margin-top:30px;
-font-size:0.85rem;
+font-size:0.8rem;
 }
 </style>
 </head>
@@ -139,19 +176,19 @@ font-size:0.85rem;
 </section>
 
 <section class="trust">
-<h2>Perché scegliere Print3D4You</h2>
+<h2>Affidabilità Garantita</h2>
 <div class="steps">
 <div class="step-item">
-<h4>🧠 Esperienza tecnica</h4>
-<p>Ogni modello viene controllato prima della stampa.</p>
+<h4>🧠 Controllo tecnico</h4>
+<p>Revisione manuale dei file.</p>
 </div>
 <div class="step-item">
-<h4>⚙️ Stampa ottimizzata</h4>
-<p>Parametri calibrati per la migliore qualità.</p>
+<h4>⚙️ Alta Qualità</h4>
+<p>Parametri di stampa ottimizzati.</p>
 </div>
 <div class="step-item">
-<h4>🚚 Spedizione rapida</h4>
-<p>Produzione veloce e consegna a casa.</p>
+<h4>🚚 Consegna Rapida</h4>
+<p>Spedizione tracciata a domicilio.</p>
 </div>
 </div>
 </section>
