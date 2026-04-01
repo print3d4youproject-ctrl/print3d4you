@@ -1,121 +1,191 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Print3D4You | Stampa 3D su richiesta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print3D4You | Servizio Stampa 3D su richiesta</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+        }
 
-<style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: var(--gray);
+            color: #333;
+            line-height: 1.6;
+        }
 
-body{
-font-family: Arial;
-margin:0;
-background:#f5f5f5;
-text-align:center;
-}
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
 
-header{
-background:#111;
-color:white;
-padding:30px;
-}
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+        }
 
-.hero{
-padding:80px 20px;
-}
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+        }
 
-.button{
-display:inline-block;
-margin-top:20px;
-padding:15px 30px;
-background:#ff6a00;
-color:white;
-text-decoration:none;
-border-radius:6px;
-}
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
 
-.how{
-background:white;
-padding:60px 20px;
-}
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
 
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-max-width:900px;
-margin:auto;
-}
+        .button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
 
-#form{
-padding:60px 20px;
-}
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 106, 0, 0.3);
+            background: #e65f00;
+        }
 
-footer{
-padding:20px;
-background:#111;
-color:white;
-}
+        .how {
+            padding: 80px 20px;
+            text-align: center;
+            background: white;
+        }
 
-</style>
+        .how h2 {
+            margin-bottom: 50px;
+            position: relative;
+        }
 
+        .how h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            margin: 10px auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .step-card {
+            background: var(--gray);
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: background 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .step-card:hover {
+            background: #fff9f5;
+            border-color: var(--primary);
+        }
+
+        .step-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        #form-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: var(--gray);
+        }
+
+        footer {
+            padding: 40px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Correzione del bottone di rimando */
+        .cta-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-<h1>Print3D4You</h1>
-<p>Stampa 3D su richiesta</p>
+    <h1>Print3D4You</h1>
+    <p>La tua officina di stampa 3D personale</p>
 </header>
 
 <section class="hero">
-
-<h2>Hai un file STL ma non una stampante 3D?</h2>
-
-<p>
-Carica il tuo modello e ricevi un preventivo gratuito entro 24 ore.
-</p>
-
-<a href="richiesta.html" class="button">
-  Richiedi il tuo modello 3D
-</a>
-
+    <h2>Hai un file STL ma non una stampante?</h2>
+    <p>Trasformiamo i tuoi progetti digitali in oggetti reali con precisione industriale.</p>
+    <a class="button" href="#form-section">Inizia ora</a>
 </section>
 
 <section class="how">
-
-<h2>Come funziona</h2>
-
-<div class="steps">
-
-<div>
-<h3>1️⃣ Carica il modello</h3>
-<p>Invia il file STL o OBJ tramite il modulo.</p>
-</div>
-
-<div>
-<h3>2️⃣ Ricevi preventivo</h3>
-<p>Analizzo il modello e ricevi il prezzo entro 24h.</p>
-</div>
-
-<div>
-<h3>3️⃣ Paga con PayPal</h3>
-<p>Se accetti il preventivo paghi facilmente online.</p>
-</div>
-
-<div>
-<h3>4️⃣ Ricevi la stampa</h3>
-<p>Stampo e spedisco direttamente a casa tua.</p>
-</div>
-
-</div>
-
+    <h2>Come funziona</h2>
+    <div class="steps">
+        <div class="step-card">
+            <h3>1️⃣ Carica</h3>
+            <p>Inviaci il tuo file STL o OBJ tramite il nostro modulo sicuro.</p>
+        </div>
+        <div class="step-card">
+            <h3>2️⃣ Analisi</h3>
+            <p>Verifico la fattibilità tecnica e preparo il tuo preventivo entro 24h.</p>
+        </div>
+        <div class="step-card">
+            <h3>3️⃣ Conferma</h3>
+            <p>Accetta il preventivo e paga comodamente via PayPal o carta.</p>
+        </div>
+        <div class="step-card">
+            <h3>4️⃣ Ricevi</h3>
+            <p>Stampo il tuo modello e lo spedisco con corriere espresso.</p>
+        </div>
+    </div>
 </section>
 
+<section id="form-section">
+    <h2>Pronto a dare vita alle tue idee?</h2>
+    <p>Clicca il tasto qui sotto per accedere al modulo di caricamento file.</p>
+    <div class="cta-container">
+        <button class="button" onclick="location.href='richiesta.html'">
+            Vai al modulo di richiesta
+        </button>
+    </div>
+</section>
 
 <footer>
-
-<p>© Print3D4You</p>
-
+    <p>© 2026 Print3D4You - Monitoraggio e Qualità Garantita</p>
 </footer>
 
 </body>
