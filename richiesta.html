@@ -10,17 +10,18 @@
             margin: 0;
             background: #f5f5f5;
             text-align: center;
+            color: #0a2540; /* Blu Navy Scuro */
         }
 
         header {
-            background: #111;
+            background: #0a2540; /* Blu Navy Scuro */
             color: white;
             padding: 20px;
-            border-bottom: 3px solid #ff6a00;
+            border-bottom: 3px solid #007bff; /* Blu Elettrico */
         }
 
         .container {
-            max-width: 900px;
+            max-width: 700px; /* Rimpicciolita la sezione del form */
             margin: 30px auto;
             padding: 0 15px;
         }
@@ -28,34 +29,43 @@
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            color: #ff6a00;
+            color: #007bff; /* Blu Elettrico */
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
         }
 
         h1 {
             margin-top: 10px;
             font-size: 1.8rem;
-            color: #111;
+            color: #0a2540;
         }
 
         .info {
             margin-bottom: 30px;
-            color: #666;
+            color: #4a5a6a; /* Grigio-bluastro */
+            font-size: 1rem;
         }
 
-        /* Wrapper per il form di Tally */
-        .form-wrapper {
+        /* Card del form per renderlo più compatto */
+        .form-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #dee2e6;
         }
 
         footer {
             padding: 20px;
-            background: #111;
+            background: #0a2540;
             color: white;
             margin-top: 40px;
             font-size: 0.8rem;
@@ -72,7 +82,7 @@
     <a href="index.html" class="back-link">← Torna alla Home</a>
     
     <h1>Richiedi il tuo modello 3D</h1>
-    <p class="info">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo.</p>
+    <p class="info">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo gratuito.</p>
 
     <div class="form-card">
         <iframe 
@@ -91,7 +101,7 @@
 <script async src="https://tally.so/widgets/embed.js"></script>
 
 <footer>
-    <p>© Print3D4You | Gestione Processi IT</p>
+    <p>© Print3D4You | Qualità e Revisione Processi</p>
 </footer>
 
 </body>
