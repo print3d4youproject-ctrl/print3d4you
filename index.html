@@ -169,7 +169,34 @@ color: #6c757d;
 margin-top: 10px;
 gap: 10px;
 }
+/* Stile per allineare logo e testo */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Spazio tra logo e testo */
+}
 
+.logo {
+    height: 60px; /* Regola l'altezza del logo */
+    width: auto;
+}
+
+.header-text {
+    text-align: left; /* Allinea il testo a sinistra rispetto al logo */
+}
+
+/* Riduciamo i margini dei titoli per stare vicini al logo */
+.header-text h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
 .trust .step-item {
 background: transparent;
 padding: 5px;
@@ -199,8 +226,13 @@ font-size:0.8rem;
 <body>
 
 <header>
-<h1>Print3D4You</h1>
-<p>Stampiamo noi per te</p>
+    <div class="header-container">
+        <img src="Logo Print3d4you.png" alt="Print3D4You Logo" class="logo">
+        <div class="header-text">
+            <h1>Print3D4You</h1>
+            <p>Stampa 3D su richiesta</p>
+        </div>
+    </div>
 </header>
 
 <main>
