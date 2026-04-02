@@ -170,33 +170,33 @@ margin-top: 10px;
 gap: 10px;
 }
 /* Stile per allineare logo e testo */
-.header-container {
+
+header {
+    background: #0a2540; /* La tua striscia Blu Navy */
+    padding: 15px 0;    /* Spazio sopra e sotto il box */
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15px; /* Spazio tra logo e testo */
+    align-items: center;
+    border-bottom: 3px solid #007bff; /* Linea azzurra di accento */
 }
 
-.logo {
-    height: 60px; /* Regola l'altezza del logo */
+.logo-box {
+    background: white;       /* Il box bianco richiesto */
+    padding: 10px 25px;      /* Spazio interno intorno al logo */
+    border-radius: 8px;      /* Angoli leggermente arrotondati per modernità */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Ombra per farlo "uscire" dal blu */
+}
+
+.logo-box img {
+    height: 60px;            /* Altezza del logo nel box */
     width: auto;
+    display: block;
 }
 
-.header-text {
-    text-align: left; /* Allinea il testo a sinistra rispetto al logo */
-}
-
-/* Riduciamo i margini dei titoli per stare vicini al logo */
-.header-text h1 {
-    margin: 0;
-    font-size: 1.8rem;
-}
-
-.header-text p {
-    margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
+    
 .trust .step-item {
 background: transparent;
 padding: 5px;
@@ -226,12 +226,8 @@ font-size:0.8rem;
 <body>
 
 <header>
-    <div class="header-container">
-        <img src="logo%20print3d4you.png" alt="Print3D4You Logo" class="logo">
-        <div class="header-text">
-            <h1>Print3D4You</h1>
-            <p>Stampa 3D su richiesta</p>
-        </div>
+    <div class="logo-box">
+        <img src="logo%20print3d4you.png" alt="Print3D4You Logo">
     </div>
 </header>
 
