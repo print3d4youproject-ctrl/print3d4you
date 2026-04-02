@@ -32,11 +32,30 @@ h1{ font-size:2.2rem; margin: 5px 0; }
 h2{ font-size:1.5rem; margin-bottom: 10px; }
 p{ line-height:1.4; margin: 10px 0; }
 
-header{
-background:#0a2540;
-color:white;
-padding:25px;
-border-bottom:3px solid #007bff;
+/* HEADER CON BOX BIANCO */
+header {
+    background: #0a2540;
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #007bff;
+}
+
+.logo-box {
+    background: white;
+    padding: 12px 35px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.logo-box img {
+    height: 85px; /* Altezza ottimizzata per PNG ritagliato */
+    width: auto;
+    display: block;
 }
 
 .hero{
@@ -104,7 +123,6 @@ margin: 0 0 5px 0;
 font-size: 1.1rem;
 }
 
-/* Cosa offriamo — fascia scura, stile diverso dalle card bianche */
 .service{
 background: linear-gradient(135deg, #0a2540 0%, #123a5c 100%);
 color: #fff;
@@ -169,34 +187,7 @@ color: #6c757d;
 margin-top: 10px;
 gap: 10px;
 }
-/* Stile per allineare logo e testo */
 
-header {
-    background: #0a2540; /* La tua striscia Blu Navy */
-    padding: 15px 0;    /* Spazio sopra e sotto il box */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid #007bff; /* Linea azzurra di accento */
-}
-
-.logo-box {
-    background: white;       /* Il box bianco richiesto */
-    padding: 10px 25px;      /* Spazio interno intorno al logo */
-    border-radius: 8px;      /* Angoli leggermente arrotondati per modernità */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Ombra per farlo "uscire" dal blu */
-}
-
-.logo-box img {
-    height: 60px;            /* Altezza del logo nel box */
-    width: auto;
-    display: block;
-}
-
-    
 .trust .step-item {
 background: transparent;
 padding: 5px;
@@ -302,7 +293,7 @@ font-size:0.8rem;
 </main>
 
 <footer>
-<p>© Print3D4You</p>
+<p>© Print3D4You | Qualità e Revisione Processi</p>
 </footer>
 
 </body>
