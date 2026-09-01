@@ -1,157 +1,80 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Richiesta ricevuta. Ti contatteremo con il preventivo entro 24 ore lavorative.">
-    <title>Richiesta ricevuta | Print3D4You</title>
-    <script>
-        window.TRACKING_CONFIG = {
-            measurementId: "G-C6DGYZ65X0"
-        };
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6DGYZ65X0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag("js", new Date());
-        gtag("config", "G-C6DGYZ65X0");
-    </script>
-    <script src="tracking.js" defer></script>
-    <style>
-        body {
-            font-family: -apple-system, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            color: #0a2540;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: #0a2540;
-            color: white;
-            padding: 22px 20px;
-            border-bottom: 3px solid #007bff;
-        }
-
-        header h1 {
-            font-size: 1.85rem;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        header p {
-            margin: 8px 0 0;
-            font-size: 0.98rem;
-            opacity: 0.92;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 32px 16px 40px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid #dee2e6;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            max-width: 520px;
-            padding: 36px 28px 32px;
-        }
-
-        .success-mark {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #e8f4ff;
-            color: #007bff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .card h2 {
-            margin: 0 0 14px;
-            font-size: 1.55rem;
-            color: #0a2540;
-            font-weight: 800;
-        }
-
-        .card p {
-            color: #4a5a6a;
-            font-size: 1.02rem;
-            line-height: 1.5;
-            margin: 0 0 14px;
-        }
-
-        .card p:last-of-type {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            color: #6c757d;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 16px 32px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.05rem;
-            box-shadow: 0 8px 18px rgba(0, 123, 255, 0.28);
-            transition: 0.25s;
-        }
-
-        .button:hover {
-            background: #0069d9;
-            transform: scale(1.03);
-        }
-
-        footer {
-            padding: 20px;
-            background: #0a2540;
-            color: white;
-            font-size: 0.8rem;
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Richiesta ricevuta. Ti contatteremo con il preventivo entro 24 ore lavorative.">
+<title>Richiesta ricevuta | Print3D4You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+window.TRACKING_CONFIG = { measurementId: "G-C6DGYZ65X0" };
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6DGYZ65X0"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-C6DGYZ65X0");
+</script>
+<script src="tracking.js" defer></script>
+<style>
+  body{ display:flex; flex-direction:column; min-height:100vh; }
+  main.thanks{
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:48px 20px; text-align:center;
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    max-width:520px; padding:40px 30px 34px;
+  }
+  .success-mark{
+    width:56px; height:56px; margin:0 auto 22px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.7rem; font-weight:700;
+  }
+  .card h1{ font-size:1.6rem; margin-bottom:.5em; }
+  .card p{ margin:0 auto 14px; }
+  .card p:last-of-type{ margin-bottom:0; font-size:0.9rem; }
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Print3D4You</h1>
-    <p>Stampiamo noi per te</p>
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="logo%20print3d4you.png" alt="Print3D4You">
+      <span>Print3D4You</span>
+    </a>
+    <ul>
+      <li><a href="quadri.html">Quadri</a></li>
+      <li><a href="espositori-giochi.html">Espositori giochi</a></li>
+      <li><a href="espositori-console.html">Espositori console</a></li>
+      <li><a href="richiesta.html">Stampa su richiesta</a></li>
+    </ul>
+    <a class="cta" href="richiesta.html">Richiedi un preventivo</a>
+  </nav>
 </header>
 
-<main>
-    <div class="card">
-        <div class="success-mark" aria-hidden="true">✓</div>
-        <h2>Richiesta ricevuta</h2>
-        <p>Grazie: abbiamo ricevuto il modulo con i tuoi dati e il file. Ora li esaminiamo e ti scriviamo con <strong>preventivo e passi successivi</strong>, di solito entro <strong>24 ore lavorative</strong>.</p>
-        <p>Se non trovi la nostra e-mail, controlla la cartella spam o promozioni.</p>
-        <a href="index.html" class="button">Torna alla home</a>
+<main class="thanks">
+  <div class="card">
+    <div class="success-mark" aria-hidden="true">✓</div>
+    <h1>Richiesta ricevuta</h1>
+    <p>Grazie: abbiamo ricevuto il modulo con i tuoi dati e il file. Ora li esaminiamo e ti scriviamo con <strong>preventivo e passi successivi</strong>, di solito entro <strong>24 ore lavorative</strong>.</p>
+    <p>Se non trovi la nostra e-mail, controlla la cartella spam o promozioni.</p>
+    <div style="margin-top:26px;">
+      <a href="index.html" class="btn btn-primary">Torna alla home</a>
     </div>
+  </div>
 </main>
 
-<footer>
-    <p>© Print3D4You</p>
+<footer class="site">
+  <div class="wrap">
+    <p>© Print3D4You | Qualità e revisione processi</p>
+    <a href="index.html">Torna alla home →</a>
+  </div>
 </footer>
 
 </body>

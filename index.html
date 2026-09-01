@@ -1,14 +1,15 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Servizio di stampa 3D su richiesta. Invia il tuo file STL o OBJ e ricevi un preventivo gratuito entro 24 ore.">
+<meta name="description" content="Stampa 3D su richiesta, quadri con loghi delle squadre ed espositori per console e videogiochi. Preventivo gratuito entro 24 ore.">
 <title>Print3D4You | Stampa 3D su richiesta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <script>
-window.TRACKING_CONFIG = {
-measurementId: "G-C6DGYZ65X0"
-};
+window.TRACKING_CONFIG = { measurementId: "G-C6DGYZ65X0" };
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6DGYZ65X0"></script>
 <script>
@@ -18,282 +19,125 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
-
-<style>
-body{
-font-family:-apple-system,sans-serif;
-margin:0;
-background:#f5f5f5;
-text-align:center;
-color: #0a2540;
-}
-
-h1{ font-size:2.2rem; margin: 5px 0; }
-h2{ font-size:1.5rem; margin-bottom: 10px; }
-p{ line-height:1.4; margin: 10px 0; }
-
-/* HEADER CON BOX BIANCO */
-header {
-    background: #0a2540;
-    padding: 25px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid #007bff;
-}
-
-.logo-box {
-    background: white;
-    padding: 12px 35px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-.logo-box img {
-    height: 85px; /* Altezza ottimizzata per PNG ritagliato */
-    width: auto;
-    display: block;
-}
-
-.hero{
-padding:56px 20px 48px;
-max-width:1100px;
-margin:auto;
-}
-
-.hero h2 {
-font-size: 2rem;
-font-weight: 800;
-}
-
-.hero p {
-font-size: 1.2rem;
-color: #4a5a6a;
-margin-bottom: 20px;
-}
-
-.button{
-display:inline-block;
-padding:18px 36px;
-background:#007bff;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-font-size:1.15rem;
-box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
-transition: 0.3s;
-}
-
-.button:hover{
-background:#0069d9;
-transform: scale(1.05);
-}
-
-.how, .trust {
-background:white;
-max-width:1100px;
-margin: 20px auto;
-border-radius: 12px;
-overflow: hidden;
-}
-
-.how { padding: 32px 20px; }
-
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-max-width:950px;
-margin:18px auto 0;
-}
-
-.step-item{
-background:#fafafa;
-padding:15px;
-border-radius:10px;
-}
-
-.step-item h3{
-color:#007bff;
-margin: 0 0 5px 0;
-font-size: 1.1rem;
-}
-
-.service{
-background: linear-gradient(135deg, #0a2540 0%, #123a5c 100%);
-color: #fff;
-max-width:1100px;
-margin: 20px auto;
-border-radius: 12px;
-padding: 28px 22px;
-border: 1px solid #0d3555;
-box-shadow: 0 8px 24px rgba(10, 37, 64, 0.25);
-}
-
-.service h2{
-color: #fff;
-margin: 0 0 18px 0;
-font-size: 1.25rem;
-letter-spacing: 0.02em;
-}
-
-.service-grid{
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 14px 18px;
-text-align: left;
-max-width: 980px;
-margin: 0 auto;
-}
-
-.service-item{
-background: rgba(255,255,255,0.08);
-border-radius: 10px;
-padding: 14px 16px;
-border-left: 4px solid #007bff;
-}
-
-.service-item strong{
-display: block;
-font-size: 0.95rem;
-margin-bottom: 4px;
-color: #e8f2ff;
-}
-
-.service-item span{
-font-size: 0.88rem;
-color: #c8d6e8;
-line-height: 1.45;
-}
-
-.trust {
-padding: 20px;
-background: #fff;
-border: 1px solid #dee2e6;
-}
-
-.trust h2 {
-font-size: 1rem;
-letter-spacing: 1px;
-margin-bottom: 15px;
-color: #6c757d;
-}
-
-.trust .steps {
-margin-top: 10px;
-gap: 10px;
-}
-
-.trust .step-item {
-background: transparent;
-padding: 5px;
-}
-
-.trust .step-item h4 {
-font-size: 0.9rem;
-margin-bottom: 2px;
-}
-
-.trust .step-item p {
-font-size: 0.8rem;
-color: #6c757d;
-margin: 0;
-}
-
-footer{
-padding:20px;
-background:#0a2540;
-color:white;
-margin-top:24px;
-font-size:0.8rem;
-}
-</style>
 </head>
-
 <body>
 
-<header>
-    <div class="logo-box">
-        <img src="logo%20print3d4you.png" alt="Print3D4You Logo">
-    </div>
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="logo%20print3d4you.png" alt="Print3D4You">
+      <span>Print3D4You</span>
+    </a>
+    <ul>
+      <li><a href="quadri.html">Quadri</a></li>
+      <li><a href="espositori-giochi.html">Espositori giochi</a></li>
+      <li><a href="espositori-console.html">Espositori console</a></li>
+      <li><a href="richiesta.html">Stampa su richiesta</a></li>
+    </ul>
+    <a class="cta" href="richiesta.html">Richiedi un preventivo</a>
+  </nav>
 </header>
 
 <main>
-<section class="hero">
-<h2>Hai un file 3D ma non una stampante?</h2>
-<p>Carica il tuo modello e ricevi un preventivo gratuito entro 24 ore.</p>
-<a class="button" href="richiesta.html">Invia la tua richiesta</a>
-</section>
 
-<section class="how">
-<h2>Come funziona</h2>
-<div class="steps">
-<div class="step-item">
-<h3>1️⃣ Carica il modello</h3>
-<p>Invia il file STL o OBJ tramite il modulo.</p>
-</div>
-<div class="step-item">
-<h3>2️⃣ Ricevi preventivo</h3>
-<p>Analizzo il modello e ricevi il prezzo entro 24h.</p>
-</div>
-<div class="step-item">
-<h3>3️⃣ Paga con PayPal</h3>
-<p>Se accetti il preventivo paghi online.</p>
-</div>
-<div class="step-item">
-<h3>4️⃣ Ricevi la stampa</h3>
-<p>Stampo e spedisco direttamente a casa.</p>
-</div>
-</div>
-</section>
+  <section class="hero">
+    <h1>Idee stampate in tre dimensioni, dal tuo file o dal nostro catalogo</h1>
+    <p class="lead">Quadri con loghi in rilievo, espositori per console e videogiochi, oppure carica un tuo modello STL/OBJ e ricevi un preventivo su misura entro 24 ore.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#catalogo">Esplora il catalogo</a>
+      <a class="btn btn-ghost" href="richiesta.html">Stampa un mio file</a>
+    </div>
+  </section>
 
-<section class="service">
-<h2>Cosa offriamo</h2>
-<div class="service-grid">
-<div class="service-item">
-<strong>Preventivo chiaro</strong>
-<span>Prezzo in base a geometria, dimensioni, materiale e finitura.</span>
-</div>
-<div class="service-item">
-<strong>Controllo del file</strong>
-<span>Segnaliamo problemi evidenti (STL/OBJ) prima di stampare.</span>
-</div>
-<div class="service-item">
-<strong>Stampa e imballaggio</strong>
-<span>Produzione curata e imballo adatto alla spedizione.</span>
-</div>
-<div class="service-item">
-<strong>Spedizione tracciata</strong>
-<span>Consegna con codice di tracciamento quando il pacco parte.</span>
-</div>
-</div>
-</section>
+  <section class="categories" id="catalogo">
+    <div class="wrap">
+      <div class="cat-grid">
+        <a class="cat-card" href="quadri.html">
+          <img src="site_images/quadro_inter_1.jpg" alt="Quadro logo squadra di calcio stampato in 3D">
+          <div class="overlay">
+            <h3>Quadri</h3>
+            <span class="count">Loghi di squadre in rilievo, 25×25 cm</span>
+          </div>
+        </a>
+        <a class="cat-card" href="espositori-giochi.html">
+          <img src="site_images/espo_ps5.jpg" alt="Espositore per videogioco PS5">
+          <div class="overlay">
+            <h3>Espositori giochi</h3>
+            <span class="count">Un supporto per ogni titolo</span>
+          </div>
+        </a>
+        <a class="cat-card" href="espositori-console.html">
+          <img src="site_images/espo_xbox.jpg" alt="Espositore per console">
+          <div class="overlay">
+            <h3>Espositori console</h3>
+            <span class="count">Supporti dedicati per la tua console</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<section class="trust">
-<h2>Perché scegliere Print3D4You</h2>
-<div class="steps">
-<div class="step-item">
-<h4>🧠 Controllo tecnico</h4>
-<p>Revisione manuale dei file.</p>
-</div>
-<div class="step-item">
-<h4>⚙️ Alta Qualità</h4>
-<p>Parametri di stampa ottimizzati.</p>
-</div>
-<div class="step-item">
-<h4>🚚 Consegna Rapida</h4>
-<p>Spedizione tracciata a domicilio.</p>
-</div>
-</div>
-</section>
+  <section class="block tinted">
+    <div class="wrap">
+      <span class="kicker">Stampa su richiesta</span>
+      <h2>Hai un tuo file 3D? Lo stampiamo noi</h2>
+      <p>Carica il modello, ricevi un preventivo chiaro entro 24 ore e paghi solo se lo accetti.</p>
+      <div class="grid-4">
+        <div class="feat">
+          <h4>1. Carica il modello</h4>
+          <p>Invia il file STL o OBJ tramite il modulo.</p>
+        </div>
+        <div class="feat">
+          <h4>2. Ricevi preventivo</h4>
+          <p>Analizziamo il modello e rispondiamo entro 24h.</p>
+        </div>
+        <div class="feat">
+          <h4>3. Paga con PayPal</h4>
+          <p>Se accetti il preventivo, paghi online.</p>
+        </div>
+        <div class="feat">
+          <h4>4. Ricevi la stampa</h4>
+          <p>Stampiamo e spediamo direttamente a casa tua.</p>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <a class="btn btn-primary" href="richiesta.html">Invia la tua richiesta</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <span class="kicker">Perché Print3D4You</span>
+      <h2>Controllo, qualità, consegna</h2>
+      <div class="grid-4">
+        <div class="feat">
+          <h4>🧠 Controllo tecnico</h4>
+          <p>Revisione manuale di ogni file prima della stampa.</p>
+        </div>
+        <div class="feat">
+          <h4>⚙️ Alta qualità</h4>
+          <p>Parametri di stampa ottimizzati per ogni materiale.</p>
+        </div>
+        <div class="feat">
+          <h4>🎨 Finiture curate</h4>
+          <p>Verniciature ed effetti fatti a mano sui pezzi in catalogo.</p>
+        </div>
+        <div class="feat">
+          <h4>🚚 Consegna rapida</h4>
+          <p>Spedizione tracciata a domicilio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-<p>© Print3D4You | Qualità e Revisione Processi</p>
+<footer class="site">
+  <div class="wrap">
+    <p>© Print3D4You | Qualità e revisione processi</p>
+    <a href="richiesta.html">Richiedi un preventivo →</a>
+  </div>
 </footer>
 
 </body>

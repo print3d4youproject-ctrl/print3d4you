@@ -1,162 +1,101 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Invia il tuo file 3D e richiedi un preventivo gratuito per la stampa 3D.">
-    <title>Richiedi Modello 3D | Print3D4You</title>
-    <script>
-        window.TRACKING_CONFIG = {
-            measurementId: "G-C6DGYZ65X0"
-        };
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6DGYZ65X0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag("js", new Date());
-        gtag("config", "G-C6DGYZ65X0");
-    </script>
-    <script src="tracking.js" defer></script>
-    <style>
-        body {
-            font-family: -apple-system, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            text-align: center;
-            color: #0a2540; /* Blu Navy Scuro */
-        }
-
-        header {
-            background: #0a2540; /* Blu Navy Scuro */
-            color: white;
-            padding: 20px;
-            border-bottom: 3px solid #007bff; /* Blu Elettrico */
-        }
-
-        .container {
-            max-width: 700px; /* Rimpicciolita la sezione del form */
-            margin: 30px auto;
-            padding: 0 15px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #007bff; /* Blu Elettrico */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-
-        .back-link:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-
-        h1 {
-            margin-top: 10px;
-            font-size: 1.8rem;
-            color: #0a2540;
-        }
-
-        .info {
-            margin-bottom: 22px;
-            color: #4a5a6a; /* Grigio-bluastro */
-            font-size: 1rem;
-        }
-
-        .legal-mini {
-            text-align: left;
-            background: #fafbfc;
-            border-radius: 12px;
-            padding: 20px 18px;
-            margin-bottom: 18px;
-            border: 1px solid #dee2e6;
-        }
-
-        .legal-mini h2 {
-            font-size: 1.1rem;
-            color: #0a2540;
-            margin: 0 0 12px 0;
-            text-align: center;
-        }
-
-        .legal-mini p {
-            font-size: 0.88rem;
-            color: #5a6a7a;
-            margin: 12px 0 0;
-            line-height: 1.55;
-        }
-
-        .legal-mini p:first-of-type {
-            margin-top: 0;
-        }
-
-        /* Card del form per renderlo più compatto */
-        .form-card {
-            background: white;
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            border: 1px solid #dee2e6;
-        }
-
-        .form-card iframe {
-    transform: scale(0.9); /* Riduce tutto al 90% */
-    transform-origin: 0 0; /* Mantiene l'allineamento in alto a sinistra */
-    width: 111.1%; /* Compensa la riduzione della larghezza (100 / 0.9) */
-}
-        
-        footer {
-            padding: 20px;
-            background: #0a2540;
-            color: white;
-            margin-top: 40px;
-            font-size: 0.8rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Invia il tuo file 3D e richiedi un preventivo gratuito per la stampa 3D.">
+<title>Richiedi un preventivo | Print3D4You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+window.TRACKING_CONFIG = { measurementId: "G-C6DGYZ65X0" };
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6DGYZ65X0"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-C6DGYZ65X0");
+</script>
+<script src="tracking.js" defer></script>
+<style>
+  .req-wrap{ max-width:700px; margin:0 auto; padding:48px 24px 72px; }
+  .back-link{ display:inline-block; margin-bottom:22px; color:var(--accent); text-decoration:none; font-weight:600; font-size:0.92rem; }
+  .back-link:hover{ text-decoration:underline; }
+  .req-wrap h1{ font-size:1.9rem; margin-bottom:.35em; }
+  .req-wrap > p.lead{ margin-bottom:26px; }
+  .legal-mini{
+    text-align:left; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:22px 20px; margin-bottom:22px;
+  }
+  .legal-mini h2{ font-size:1.05rem; margin-bottom:.6em; }
+  .legal-mini p{ font-size:0.88rem; margin:12px 0 0; color:var(--text-dim); }
+  .legal-mini p:first-of-type{ margin-top:0; }
+  .form-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:10px; overflow:hidden;
+  }
+  .form-card iframe{
+    transform:scale(0.95); transform-origin:0 0; width:105.3%; border-radius:8px;
+    color-scheme: dark;
+  }
+</style>
 </head>
 <body>
 
-<header>
-    <div style="font-weight: bold; font-size: 1.2rem;">Print3D4You</div>
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="logo%20print3d4you.png" alt="Print3D4You">
+      <span>Print3D4You</span>
+    </a>
+    <ul>
+      <li><a href="quadri.html">Quadri</a></li>
+      <li><a href="espositori-giochi.html">Espositori giochi</a></li>
+      <li><a href="espositori-console.html">Espositori console</a></li>
+      <li><a href="richiesta.html" class="active">Stampa su richiesta</a></li>
+    </ul>
+    <a class="cta" href="richiesta.html">Richiedi un preventivo</a>
+  </nav>
 </header>
 
-<div class="container">
-    <a href="index.html" class="back-link">← Torna alla Home</a>
-    
+<main>
+  <div class="req-wrap">
+    <a href="index.html" class="back-link">← Torna alla home</a>
     <h1>Richiedi il tuo modello 3D</h1>
-    <p class="info">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo gratuito.</p>
+    <p class="lead">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo gratuito.</p>
 
     <section class="legal-mini" aria-labelledby="legal-info-title">
-        <h2 id="legal-info-title">Informazioni importanti</h2>
-        <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>
-        <p>Devi avere il <strong>diritto di utilizzare il modello</strong> che invii: non trattiamo richieste che violano legge o diritti di terzi.</p>
-        <p>Il <strong>preventivo non è un ordine vincolante</strong> finché non confermi esplicitamente. Tempi di risposta e di produzione sono indicativi e possono variare in base a complessità del pezzo, disponibilità e corriere.</p>
-        <p>Per qualsiasi chiarimento sul servizio, usa il modulo di richiesta: è il canale ufficiale per nuove commesse.</p>
+      <h2 id="legal-info-title">Informazioni importanti</h2>
+      <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>
+      <p>Devi avere il <strong>diritto di utilizzare il modello</strong> che invii: non trattiamo richieste che violano legge o diritti di terzi.</p>
+      <p>Il <strong>preventivo non è un ordine vincolante</strong> finché non confermi esplicitamente. Tempi di risposta e di produzione sono indicativi e possono variare in base a complessità del pezzo, disponibilità e corriere.</p>
+      <p>Per qualsiasi chiarimento sul servizio, usa il modulo di richiesta: è il canale ufficiale per nuove commesse.</p>
     </section>
 
     <div class="form-card">
-        <iframe 
-            src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1" 
-            loading="lazy" 
-            width="100%" 
-            height="650" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0" 
-            title="Richiesta modello 3D">
-        </iframe>
+      <iframe
+        src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1"
+        loading="lazy"
+        width="100%"
+        height="650"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Richiesta modello 3D">
+      </iframe>
     </div>
-</div>
+  </div>
+</main>
 
 <script async src="https://tally.so/widgets/embed.js"></script>
 
-<footer>
-    <p>© Print3D4You</p>
+<footer class="site">
+  <div class="wrap">
+    <p>© Print3D4You | Qualità e revisione processi</p>
+    <a href="index.html">Torna alla home →</a>
+  </div>
 </footer>
 
 </body>
