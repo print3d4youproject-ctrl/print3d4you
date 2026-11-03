@@ -19,38 +19,20 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
-<style>
-  .req-wrap{ max-width:700px; margin:0 auto; padding:48px 24px 72px; }
-  .back-link{ display:inline-block; margin-bottom:22px; color:var(--accent); text-decoration:none; font-weight:600; font-size:0.92rem; }
-  .back-link:hover{ text-decoration:underline; }
-  .req-wrap h1{ font-size:1.9rem; margin-bottom:.35em; }
-  .req-wrap > p.lead{ margin-bottom:26px; }
-  .legal-mini{
-    text-align:left; background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius); padding:22px 20px; margin-bottom:22px;
-  }
-  .legal-mini h2{ font-size:1.05rem; margin-bottom:.6em; }
-  .legal-mini p{ font-size:0.88rem; margin:12px 0 0; color:var(--text-dim); }
-  .legal-mini p:first-of-type{ margin-top:0; }
-  .form-card{
-    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-    padding:10px; overflow:hidden;
-  }
-  .form-card iframe{
-    transform:scale(0.95); transform-origin:0 0; width:105.3%; border-radius:8px;
-    color-scheme: dark;
-  }
-</style>
+<script src="site.js" defer></script>
+
 </head>
 <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
 <header class="site">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navigazione principale">
     <a class="brand" href="index.html">
       <img src="logo%20print3d4you.png" alt="Print3D4You">
       <span>Print3D4You</span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu <span aria-hidden="true">☰</span></button>
+    <ul id="main-menu">
       <li><a href="quadri.html">Quadri</a></li>
       <li><a href="espositori-giochi.html">Espositori giochi</a></li>
       <li><a href="espositori-console.html">Espositori console</a></li>
@@ -60,32 +42,42 @@ gtag("config", "G-C6DGYZ65X0");
   </nav>
 </header>
 
-<main>
+<main id="contenuto">
   <div class="req-wrap">
     <a href="index.html" class="back-link">← Torna alla home</a>
-    <h1>Richiedi il tuo modello 3D</h1>
-    <p class="lead">Compila il modulo qui sotto per inviare i tuoi file e ricevere il preventivo gratuito.</p>
+    <h1>Raccontaci cosa vuoi stampare.</h1>
+    <p class="lead">Un prodotto del catalogo o un progetto personale: inviaci i dettagli per ricevere un preventivo gratuito, senza impegno.</p>
 
-    <section class="legal-mini" aria-labelledby="legal-info-title">
-      <h2 id="legal-info-title">Informazioni importanti</h2>
-      <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>
-      <p>Devi avere il <strong>diritto di utilizzare il modello</strong> che invii: non trattiamo richieste che violano legge o diritti di terzi.</p>
-      <p>Il <strong>preventivo non è un ordine vincolante</strong> finché non confermi esplicitamente. Tempi di risposta e di produzione sono indicativi e possono variare in base a complessità del pezzo, disponibilità e corriere.</p>
-      <p>Per qualsiasi chiarimento sul servizio, usa il modulo di richiesta: è il canale ufficiale per nuove commesse.</p>
+    <section class="request-selection" id="request-selection" hidden aria-labelledby="selected-title">
+      <span class="eyebrow">La tua selezione</span><h2 id="selected-title"></h2>
+      <p>Copia il prodotto e incollalo nel campo “Vorrei realizzare…” del modulo, aggiungendo quantità e personalizzazioni.</p>
+      <button class="btn btn-ghost" type="button" id="copy-product">Copia il prodotto</button>
+      <span id="copy-status" role="status"></span>
+      <p><a href="richiesta.html">Preferisco richiedere un altro progetto</a></p>
     </section>
-
+    <p class="form-help">File accettati: STL, OBJ e 3MF, fino a 10 MB. Per file più grandi puoi inserire un link condivisibile nella descrizione. Non sai quale materiale usare? Scrivi “Consigliatemi voi”.</p>
     <div class="form-card">
       <iframe
-        src="https://tally.so/embed/ZjYary?hideTitle=1&transparentBackground=1"
-        loading="lazy"
+        data-tally-src="https://tally.so/embed/ZjYary?hideTitle=1&dynamicHeight=1&alignLeft=1"
+        loading="eager"
         width="100%"
-        height="650"
+        height="1400"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
         title="Richiesta modello 3D">
       </iframe>
     </div>
+    <p class="form-help">Se il modulo non si carica, <a href="https://tally.so/r/ZjYary" target="_blank" rel="noopener noreferrer">aprilo in una nuova scheda</a>.</p>
+    <noscript><p><a href="https://tally.so/r/ZjYary">Apri il modulo di richiesta</a> per inviare il tuo progetto.</p></noscript>
+    <section class="legal-mini" aria-labelledby="legal-info-title">
+      <h2 id="legal-info-title">Informazioni importanti</h2>
+      <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>
+      <p>Devi avere il <strong>diritto di utilizzare il modello</strong> che invii: non trattiamo richieste che violano legge o diritti di terzi.</p>
+      <p>Il <strong>preventivo non è un ordine vincolante</strong> finché non confermi esplicitamente. Produzione e spedizione avvengono indicativamente entro <strong>5 giorni dalla conferma dell’ordine</strong>. I tempi di consegna del corriere sono aggiuntivi. Per progetti complessi o quantità elevate, eventuali tempi diversi saranno indicati nel preventivo.</p>
+      <p>Il venditore è <strong>DAMA_Lab</strong>. Per informazioni scrivi a <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>; per un preventivo utilizza il modulo qui sopra.</p>
+    </section>
+
   </div>
 </main>
 
@@ -93,7 +85,10 @@ gtag("config", "G-C6DGYZ65X0");
 
 <footer class="site">
   <div class="wrap">
-    <p>© Print3D4You | Qualità e revisione processi</p>
+    <div class="seller-contact">
+      <p>© Print3D4You · Venditore: DAMA_Lab</p>
+      <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>
+    </div>
     <a href="index.html">Torna alla home →</a>
   </div>
 </footer>

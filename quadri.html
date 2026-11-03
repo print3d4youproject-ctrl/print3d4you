@@ -9,16 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="tracking.js" defer></script>
+<script src="site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
 <header class="site">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navigazione principale">
     <a class="brand" href="index.html">
       <img src="logo%20print3d4you.png" alt="Print3D4You">
       <span>Print3D4You</span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu <span aria-hidden="true">☰</span></button>
+    <ul id="main-menu">
       <li><a href="quadri.html" class="active">Quadri</a></li>
       <li><a href="espositori-giochi.html">Espositori giochi</a></li>
       <li><a href="espositori-console.html">Espositori console</a></li>
@@ -28,7 +31,7 @@
   </nav>
 </header>
 
-<main>
+<main id="contenuto">
   <section class="catalog-hero">
     <div class="wrap">
       <div class="breadcrumb"><a href="index.html">Catalogo</a> / Quadri</div>
@@ -38,56 +41,57 @@
   </section>
 
   <div class="wrap">
+    <p class="catalog-note">Prezzi di partenza: personalizzazioni, quantità, spedizione e tempi saranno specificati nel preventivo prima della conferma.</p>
     <div class="product-grid">
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/quadro_inter_1.jpg" alt="Quadro logo Inter 3D effetto marmo"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/quadro_inter_1.jpg" alt="Quadro Inter"></div>
         <div class="info">
           <span class="tag">Serie A</span>
           <h3>Quadro Inter</h3>
           <p>Sfondo effetto marmo nero e blu, cornice 25×25 cm.</p>
           <div class="price-row">
-            <span class="price">da 39€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 39 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Quadro%20Inter">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/quadro_milan_1.jpg" alt="Quadro logo Milan 3D effetto marmo"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/quadro_milan_1.jpg" alt="Quadro Milan"></div>
         <div class="info">
           <span class="tag">Serie A</span>
           <h3>Quadro Milan</h3>
           <p>Sfondo effetto marmo nero e rosso, cornice 25×25 cm.</p>
           <div class="price-row">
-            <span class="price">da 39€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 39 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Quadro%20Milan">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/quadro_juve_1.jpg" alt="Quadro logo Juve 3D effetto marmo"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/quadro_juve_1.jpg" alt="Quadro Juve"></div>
         <div class="info">
           <span class="tag">Serie A</span>
           <h3>Quadro Juve</h3>
           <p>Sfondo effetto marmo bianco e nero, cornice 25×25 cm.</p>
           <div class="price-row">
-            <span class="price">da 39€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 39 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Quadro%20Juve">Richiedi →</a>
           </div>
         </div>
       </div>
 
             <div class="product-card">
-        <div class="img-wrap"><img src="site_images/quadro_napoli_1.jpg" alt="Quadro logo Napoli 3D effetto marmo"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/quadro_napoli_1.jpg" alt="Quadro Napoli"></div>
         <div class="info">
           <span class="tag">Serie A</span>
           <h3>Quadro Napoli</h3>
           <p>Sfondo effetto marmo bianco e azzurro, cornice 25×25 cm.</p>
           <div class="price-row">
-            <span class="price">da 39€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 39 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Quadro%20Napoli">Richiedi →</a>
           </div>
         </div>
       </div>
@@ -103,7 +107,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <p>© Print3D4You | Qualità</p>
+    <div class="seller-contact">
+      <p>© Print3D4You · Venditore: DAMA_Lab</p>
+      <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>
+    </div>
     <a href="richiesta.html">Richiedi un preventivo →</a>
   </div>
 </footer>

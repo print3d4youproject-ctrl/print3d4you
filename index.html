@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Stampa 3D su richiesta, quadri con loghi delle squadre ed espositori per console e videogiochi. Preventivo gratuito entro 24 ore.">
+<meta name="description" content="Stampa 3D su richiesta, quadri con loghi delle squadre ed espositori per console e videogiochi. Preventivo gratuito per prodotti a catalogo e progetti personalizzati.">
 <title>Print3D4You | Stampa 3D su richiesta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,16 +19,19 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
+<script src="site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
 <header class="site">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navigazione principale">
     <a class="brand" href="index.html">
       <img src="logo%20print3d4you.png" alt="Print3D4You">
       <span>Print3D4You</span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu <span aria-hidden="true">☰</span></button>
+    <ul id="main-menu">
       <li><a href="quadri.html">Quadri</a></li>
       <li><a href="espositori-giochi.html">Espositori giochi</a></li>
       <li><a href="espositori-console.html">Espositori console</a></li>
@@ -38,39 +41,48 @@ gtag("config", "G-C6DGYZ65X0");
   </nav>
 </header>
 
-<main>
+<main id="contenuto">
 
-  <section class="hero">
-    <h1>Idee stampate in tre dimensioni, dal tuo file o dal nostro catalogo</h1>
-    <p class="lead">Quadri con loghi in rilievo, espositori per console e videogiochi, oppure carica un tuo modello STL/OBJ e ricevi un preventivo su misura entro 24 ore.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#catalogo">Esplora il catalogo</a>
-      <a class="btn btn-ghost" href="richiesta.html">Stampa un mio file</a>
+  <section class="hero hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow">Print3D4You · Dal progetto alla stampa</span>
+      <h1>La tua passione prende forma.</h1>
+      <p class="lead">Quadri in rilievo, espositori per la tua collezione e stampe 3D su misura. Scegli dal catalogo o raccontaci la tua idea.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#catalogo">Esplora il catalogo</a>
+        <a class="btn btn-ghost" href="richiesta.html">Stampa un mio file</a>
+      </div>
+      <p class="hero-note">Preventivo gratuito · Revisione del modello · Paghi dopo aver accettato</p>
     </div>
+    <figure class="hero-visual">
+      <img src="site_images/quadro_inter_1.jpg" alt="Quadro Inter con logo in rilievo e sfondo effetto marmo" fetchpriority="high" width="1024" height="1024">
+      <figcaption><span>La squadra del cuore, in rilievo.</span><a href="quadri.html">Scopri i quadri →</a></figcaption>
+    </figure>
   </section>
 
   <section class="categories" id="catalogo">
     <div class="wrap">
+      <div class="section-heading"><span class="eyebrow">Il catalogo</span><h2>Un posto speciale per le tue passioni.</h2></div>
       <div class="cat-grid">
         <a class="cat-card" href="quadri.html">
-          <img src="site_images/quadro_inter_1.jpg" alt="Quadro logo squadra di calcio stampato in 3D">
+          <img loading="lazy" decoding="async" src="site_images/quadro_inter_1.jpg" alt="Quadro logo squadra di calcio stampato in 3D">
           <div class="overlay">
             <h3>Quadri</h3>
             <span class="count">Loghi di squadre in rilievo, 25×25 cm</span>
           </div>
         </a>
         <a class="cat-card" href="espositori-giochi.html">
-          <img src="site_images/espo_ps5.jpg" alt="Espositore per videogioco PS5">
+          <img loading="lazy" decoding="async" src="site_images/espo_ps5.jpg" alt="Espositore per videogioco PS5">
           <div class="overlay">
             <h3>Espositori giochi</h3>
             <span class="count">Un supporto per ogni titolo</span>
           </div>
         </a>
         <a class="cat-card" href="espositori-console.html">
-          <img src="site_images/espo_xbox.jpg" alt="Espositore per console">
+          <img loading="lazy" decoding="async" src="site_images/console/game-boy-color-con-console.jpg" alt="Stand per Game Boy Color con console esposta">
           <div class="overlay">
             <h3>Espositori console</h3>
-            <span class="count">Supporti dedicati per la tua console</span>
+            <span class="count">Stand per PlayStation, Game Boy e Switch</span>
           </div>
         </a>
       </div>
@@ -81,15 +93,15 @@ gtag("config", "G-C6DGYZ65X0");
     <div class="wrap">
       <span class="kicker">Stampa su richiesta</span>
       <h2>Hai un tuo file 3D? Lo stampiamo noi</h2>
-      <p>Carica il modello, ricevi un preventivo chiaro entro 24 ore e paghi solo se lo accetti.</p>
+      <p>Carica il modello, ricevi un preventivo chiaro e paghi solo se lo accetti.</p>
       <div class="grid-4">
         <div class="feat">
           <h4>1. Carica il modello</h4>
-          <p>Invia il file STL o OBJ tramite il modulo.</p>
+          <p>Invia un file STL, OBJ o 3MF, oppure descrivi il progetto.</p>
         </div>
         <div class="feat">
           <h4>2. Ricevi preventivo</h4>
-          <p>Analizziamo il modello e rispondiamo entro 24h.</p>
+          <p>Verifichiamo il modello e definiamo costi e tempi.</p>
         </div>
         <div class="feat">
           <h4>3. Paga con PayPal</h4>
@@ -124,10 +136,20 @@ gtag("config", "G-C6DGYZ65X0");
           <p>Verniciature ed effetti fatti a mano sui pezzi in catalogo.</p>
         </div>
         <div class="feat">
-          <h4>🚚 Consegna rapida</h4>
-          <p>Spedizione tracciata a domicilio.</p>
+          <h4>🚚 Produzione e spedizione</h4>
+          <p>Indicativamente entro 5 giorni dalla conferma dell’ordine. I tempi di consegna del corriere sono aggiuntivi.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="domande">
+    <div class="wrap faq-wrap">
+      <span class="eyebrow">Prima di iniziare</span><h2>Le risposte alle prime domande.</h2>
+      <details><summary>Posso chiedere una stampa senza avere un file 3D?</summary><p>Sì. Descrivi cosa vuoi realizzare nel modulo e indica dimensioni, utilizzo e quantità: valuteremo insieme la fattibilità.</p></details>
+      <details><summary>Non so quale materiale scegliere.</summary><p>Scrivi “Consigliatemi voi” nel campo materiale e spiega come userai il pezzo, soprattutto se sarà esposto a calore o all’esterno.</p></details>
+      <details><summary>Quanto costano produzione e spedizione?</summary><p>Il costo dipende da modello, materiale, finitura e quantità ed è specificato nel preventivo. Produzione e spedizione avvengono indicativamente entro 5 giorni dalla conferma dell’ordine; i tempi di consegna del corriere sono aggiuntivi. Per progetti complessi o quantità elevate, eventuali tempi diversi saranno indicati nel preventivo.</p></details>
+      <details><summary>Richiedere un preventivo mi impegna ad acquistare?</summary><p>No. La richiesta è gratuita e puoi valutare il preventivo prima di accettarlo.</p></details>
     </div>
   </section>
 
@@ -135,7 +157,10 @@ gtag("config", "G-C6DGYZ65X0");
 
 <footer class="site">
   <div class="wrap">
-    <p>© Print3D4You | Qualità e revisione processi</p>
+    <div class="seller-contact">
+      <p>© Print3D4You · Venditore: DAMA_Lab</p>
+      <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>
+    </div>
     <a href="richiesta.html">Richiedi un preventivo →</a>
   </div>
 </footer>

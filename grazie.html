@@ -19,6 +19,7 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
+<script src="site.js" defer></script>
 <style>
   body{ display:flex; flex-direction:column; min-height:100vh; }
   main.thanks{
@@ -41,14 +42,16 @@ gtag("config", "G-C6DGYZ65X0");
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
 <header class="site">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navigazione principale">
     <a class="brand" href="index.html">
       <img src="logo%20print3d4you.png" alt="Print3D4You">
       <span>Print3D4You</span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu <span aria-hidden="true">☰</span></button>
+    <ul id="main-menu">
       <li><a href="quadri.html">Quadri</a></li>
       <li><a href="espositori-giochi.html">Espositori giochi</a></li>
       <li><a href="espositori-console.html">Espositori console</a></li>
@@ -72,7 +75,10 @@ gtag("config", "G-C6DGYZ65X0");
 
 <footer class="site">
   <div class="wrap">
-    <p>© Print3D4You | Qualità e revisione processi</p>
+    <div class="seller-contact">
+      <p>© Print3D4You · Venditore: DAMA_Lab</p>
+      <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>
+    </div>
     <a href="index.html">Torna alla home →</a>
   </div>
 </footer>

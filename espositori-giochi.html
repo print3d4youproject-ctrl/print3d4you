@@ -9,16 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="tracking.js" defer></script>
+<script src="site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
 <header class="site">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navigazione principale">
     <a class="brand" href="index.html">
       <img src="logo%20print3d4you.png" alt="Print3D4You">
       <span>Print3D4You</span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu <span aria-hidden="true">☰</span></button>
+    <ul id="main-menu">
       <li><a href="quadri.html">Quadri</a></li>
       <li><a href="espositori-giochi.html" class="active">Espositori giochi</a></li>
       <li><a href="espositori-console.html">Espositori console</a></li>
@@ -28,7 +31,7 @@
   </nav>
 </header>
 
-<main>
+<main id="contenuto">
   <section class="catalog-hero">
     <div class="wrap">
       <div class="breadcrumb"><a href="index.html">Catalogo</a> / Espositori giochi</div>
@@ -38,299 +41,305 @@
   </section>
 
   <div class="wrap">
+    <p class="catalog-note">Prezzi di partenza: personalizzazioni, quantità, spedizione e tempi saranno specificati nel preventivo prima della conferma.</p>
+<div class="catalog-filter" hidden>
+      <label for="platform-filter">Filtra per piattaforma</label>
+      <select id="platform-filter"><option value="all">Tutte le piattaforme</option><option value="playstation">PlayStation</option><option value="xbox">Xbox</option><option value="nintendo">Nintendo</option></select>
+      <span id="filter-count" role="status"></span>
+    </div>
     <div class="product-grid">
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps1_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps1_1.jpg" alt="Espositore PS1"></div>
         <div class="info">
-          <span class="tag">Play Station 1</span>
+          <span class="tag">PlayStation 1</span>
           <h3>Espositore PS1</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS1. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS1">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps1p_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps1p_1.jpg" alt="Espositore PS1 Platinum"></div>
         <div class="info">
-          <span class="tag">Play Station 1</span>
+          <span class="tag">PlayStation 1</span>
           <h3>Espositore PS1 Platinum</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS1 Platinum. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS1%20Platinum">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps2_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps2_1.jpg" alt="Espositore PS2"></div>
         <div class="info">
-          <span class="tag">Play Station 2</span>
+          <span class="tag">PlayStation 2</span>
           <h3>Espositore PS2</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS2. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS2">Richiedi →</a>
           </div>
         </div>
       </div>
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps2.jpg" alt="Espositore PlayStation 2 Platinum"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps2.jpg" alt="Espositore PS2 Platinum"></div>
         <div class="info">
           <span class="tag">PlayStation 2</span>
           <h3>Espositore PS2 Platinum</h3>
-          <p>Disegnato per le custodie PS2, con dettaglio "Platinum" in rilievo.</p>
+          <p>Supporto per esporre una custodia PS2 Platinum. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS2%20Platinum">Richiedi →</a>
           </div>
         </div>
       </div>
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps3_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps3_1.jpg" alt="Espositore PS3"></div>
         <div class="info">
-          <span class="tag">Play Station 3</span>
+          <span class="tag">PlayStation 3</span>
           <h3>Espositore PS3</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS3. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS3">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps3p_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps3p_1.jpg" alt="Espositore PS3 Platinum"></div>
         <div class="info">
-          <span class="tag">Play Station 3</span>
+          <span class="tag">PlayStation 3</span>
           <h3>Espositore PS3 Platinum</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS3 Platinum. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS3%20Platinum">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps4_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps4_1.jpg" alt="Espositore PS4"></div>
         <div class="info">
-          <span class="tag">Play Station 4</span>
+          <span class="tag">PlayStation 4</span>
           <h3>Espositore PS4</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS4. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS4">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ps5.jpg" alt="Espositore PlayStation 5"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ps5.jpg" alt="Espositore PS5"></div>
         <div class="info">
           <span class="tag">PlayStation 5</span>
           <h3>Espositore PS5</h3>
-          <p>Base bianca con logo PlayStation, per le custodie PS5 standard.</p>
+          <p>Supporto per esporre una custodia PS5. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS5">Richiedi →</a>
           </div>
         </div>
       </div>
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_psp_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_psp_1.jpg" alt="Espositore PSP"></div>
         <div class="info">
-          <span class="tag">Play Station Portable</span>
+          <span class="tag">PlayStation Portable</span>
           <h3>Espositore PSP</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PSP. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PSP">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_pspp_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_pspp_1.jpg" alt="Espositore PSP Platinum"></div>
         <div class="info">
-          <span class="tag">Play Station Portable</span>
+          <span class="tag">PlayStation Portable</span>
           <h3>Espositore PSP Platinum</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PSP Platinum. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PSP%20Platinum">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_psvita_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_psvita_1.jpg" alt="Espositore PS Vita"></div>
         <div class="info">
-          <span class="tag">Play Station Vita</span>
+          <span class="tag">PlayStation Vita</span>
           <h3>Espositore PS Vita</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia PS Vita. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20PS%20Vita">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_xbox_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_xbox_1.jpg" alt="Espositore Xbox"></div>
         <div class="info">
           <span class="tag">Xbox</span>
           <h3>Espositore Xbox</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia Xbox. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Xbox">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_xbox360.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_xbox360.jpg" alt="Espositore Xbox 360"></div>
         <div class="info">
           <span class="tag">Xbox 360</span>
           <h3>Espositore Xbox 360</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia Xbox 360. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Xbox%20360">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_xboxone_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_xboxone_1.jpg" alt="Espositore Xbox One"></div>
         <div class="info">
           <span class="tag">Xbox One</span>
           <h3>Espositore Xbox One</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia Xbox One. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Xbox%20One">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_xboxxs_1.jpg" alt="Espositore Xbox 360"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_xboxxs_1.jpg" alt="Espositore Xbox X/S"></div>
         <div class="info">
           <span class="tag">Xbox X/S</span>
           <h3>Espositore Xbox X/S</h3>
-          <p>Sagomato sulla custodia Xbox 360, logo verde in rilievo.</p>
+          <p>Supporto per esporre una custodia Xbox X/S. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Xbox%20X%2FS">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_gamecube.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_gamecube.jpg" alt="Espositore Nintendo GameCube"></div>
         <div class="info">
           <span class="tag">Nintendo GameCube</span>
           <h3>Espositore Nintendo GameCube</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo GameCube. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20GameCube">Richiedi →</a>
           </div>
         </div>
       </div>
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_ds.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_ds.jpg" alt="Espositore Nintendo DS"></div>
         <div class="info">
           <span class="tag">Nintendo DS</span>
           <h3>Espositore Nintendo DS</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo DS. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20DS">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_3ds_1.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_3ds_1.jpg" alt="Espositore Nintendo 3DS"></div>
         <div class="info">
           <span class="tag">Nintendo 3DS</span>
           <h3>Espositore Nintendo 3DS</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo 3DS. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%203DS">Richiedi →</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_wii_1.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_wii_1.jpg" alt="Espositore Nintendo Wii"></div>
         <div class="info">
           <span class="tag">Nintendo Wii</span>
           <h3>Espositore Nintendo Wii</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo Wii. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20Wii">Richiedi →</a>
           </div>
         </div>
       </div>
 
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_wiiu_1.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_wiiu_1.jpg" alt="Espositore Nintendo Wii U"></div>
         <div class="info">
-          <span class="tag">Nintendo WiiU</span>
-          <h3>Espositore Nintendo WiiU</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <span class="tag">Nintendo Wii U</span>
+          <h3>Espositore Nintendo Wii U</h3>
+          <p>Supporto per esporre una custodia Nintendo Wii U. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20Wii%20U">Richiedi →</a>
           </div>
         </div>
       </div>
       
       <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_switch_1.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_switch_1.jpg" alt="Espositore Nintendo Switch"></div>
         <div class="info">
           <span class="tag">Nintendo Switch</span>
           <h3>Espositore Nintendo Switch</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo Switch. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20Switch">Richiedi →</a>
           </div>
         </div>
       </div>
       
 
      <div class="product-card">
-        <div class="img-wrap"><img src="site_images/espo_switch2_1.jpg" alt="Espositore Nintendo DS per Brain Training"></div>
+        <div class="img-wrap"><img loading="lazy" decoding="async" src="site_images/espo_switch2_1.jpg" alt="Espositore Nintendo Switch 2"></div>
         <div class="info">
           <span class="tag">Nintendo Switch 2</span>
           <h3>Espositore Nintendo Switch 2</h3>
-          <p>Sagomato sul formato custodia DS, logo Nintendo in rilievo.</p>
+          <p>Supporto per esporre una custodia Nintendo Switch 2. Indica nel preventivo eventuali edizioni o formati particolari.</p>
           <div class="price-row">
-            <span class="price">da 12€</span>
-            <a class="mini-btn" href="richiesta.html">Richiedi →</a>
+            <span class="price">da 12 €</span>
+            <a class="mini-btn" href="richiesta.html?prodotto=Espositore%20Nintendo%20Switch%202">Richiedi →</a>
           </div>
         </div>
       </div>
       
     
       <div class="empty-note">
-        Altre piattaforme disponibili su richiesta (PS1, PS3, PS4, Switch, Xbox One/Series).
+        Non trovi il formato che cerchi? <a href="richiesta.html">Descrivi la tua richiesta su misura →</a>
       </div>
 
     </div>
@@ -339,7 +348,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <p>© Print3D4You | Qualità e revisione processi</p>
+    <div class="seller-contact">
+      <p>© Print3D4You · Venditore: DAMA_Lab</p>
+      <a href="mailto:print3d4you.project@gmail.com">print3d4you.project@gmail.com</a>
+    </div>
     <a href="richiesta.html">Richiedi un preventivo →</a>
   </div>
 </footer>
