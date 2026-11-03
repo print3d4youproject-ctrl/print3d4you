@@ -1,0 +1,153 @@
+{
+  "games": [
+    [
+      "ps1-incastro-v2",
+      "espo_ps1_1.jpg",
+      "Gran Turismo"
+    ],
+    [
+      "ps1-platinum",
+      "espo_ps1p_1.jpg",
+      "Gran Turismo 2 Platinum"
+    ],
+    [
+      "ps2",
+      "espo_ps2_1.jpg",
+      "GTA San Andreas"
+    ],
+    [
+      "ps2-platinum",
+      "espo_ps2.jpg",
+      "FIFA Street"
+    ],
+    [
+      "ps3",
+      "espo_ps3_1.jpg",
+      "GTA V"
+    ],
+    [
+      "ps3-platinum",
+      "espo_ps3p_1.jpg",
+      "Uncharted 2 Platinum"
+    ],
+    [
+      "ps4",
+      "espo_ps4_1.jpg",
+      "God of War"
+    ],
+    [
+      "ps5",
+      "espo_ps5.jpg",
+      "Hogwarts Legacy"
+    ],
+    [
+      "psp",
+      "espo_psp_1.jpg",
+      "GTA Liberty City Stories"
+    ],
+    [
+      "psp-platinum",
+      "espo_pspp_1.jpg",
+      "GTA Vice City Stories Platinum"
+    ],
+    [
+      "ps-vita",
+      "espo_psvita_1.jpg",
+      "Uncharted Golden Abyss"
+    ],
+    [
+      "xbox",
+      "espo_xbox_1.jpg",
+      "Halo Combat Evolved"
+    ],
+    [
+      "xbox360",
+      "espo_xbox360.jpg",
+      "Forza Motorsport 3"
+    ],
+    [
+      "xbox-one",
+      "espo_xboxone_1.jpg",
+      "Forza Horizon 4"
+    ],
+    [
+      "xbox-series",
+      "espo_xboxxs_1.jpg",
+      "Halo Infinite"
+    ],
+    [
+      "gamecube",
+      "espo_gamecube.jpg",
+      "FIFA 06"
+    ],
+    [
+      "ds",
+      "espo_ds.jpg",
+      "Brain Training"
+    ],
+    [
+      "3ds",
+      "espo_3ds_1.jpg",
+      ""
+    ],
+    [
+      "wii",
+      "espo_wii_1.jpg",
+      ""
+    ],
+    [
+      "wii-u",
+      "espo_wiiu_1.jpg",
+      "Mario Kart 8"
+    ],
+    [
+      "switch",
+      "espo_switch_1.jpg",
+      "Mario Kart 8 Deluxe"
+    ],
+    [
+      "switch2",
+      "espo_switch2_1.jpg",
+      ""
+    ]
+  ],
+  "consoles": [
+    [
+      "ps1",
+      "ps1-angolata.jpeg"
+    ],
+    [
+      "ps-one",
+      "ps-one-angolata.jpeg"
+    ],
+    [
+      "game-boy",
+      "game-boy-con-console.jpg"
+    ],
+    [
+      "game-boy-pocket",
+      "game-boy-pocket-con-console.jpg"
+    ],
+    [
+      "game-boy-color",
+      "game-boy-color-con-console.jpg"
+    ],
+    [
+      "game-boy-advance",
+      "game-boy-advance-con-console.jpg"
+    ],
+    [
+      "game-boy-advance-sp",
+      "game-boy-advance-sp-con-console.jpg"
+    ],
+    [
+      "game-boy-micro",
+      "game-boy-micro-solo-stand.jpg"
+    ],
+    [
+      "switch",
+      "switch-angolata.jpg"
+    ]
+  ],
+  "web_bytes": 3524318
+}
