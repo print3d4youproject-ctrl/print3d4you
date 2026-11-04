@@ -7,7 +7,11 @@
 <title>Print3D4You | Stampa 3D su richiesta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=logo-dama-1">
+<link rel="stylesheet" href="styles.css?v=catalogo-20261104">
+
+
+
+
 <script>
 window.TRACKING_CONFIG = { measurementId: "G-C6DGYZ65X0" };
 </script>
@@ -19,7 +23,8 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
-<script src="site.js" defer></script>
+<script src="catalogo.js?v=catalogo-20261104" defer></script>
+<script src="site.js?v=catalogo-20261104" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -62,23 +67,24 @@ gtag("config", "G-C6DGYZ65X0");
   <section class="categories" id="catalogo">
     <div class="wrap">
       <div class="section-heading"><span class="eyebrow">Il catalogo</span><h2>Un posto speciale per le tue passioni.</h2></div>
+      <button class="category-motion" id="category-motion" type="button" hidden aria-pressed="false">Pausa foto</button>
       <div class="cat-grid">
-        <a class="cat-card" href="quadri.html">
+        <a class="cat-card" data-category-slideshow="quadri" href="quadri.html">
           <img loading="lazy" decoding="async" src="site_images/quadro_inter_1.jpg" alt="Quadro logo squadra di calcio stampato in 3D">
           <div class="overlay">
             <h3>Quadri</h3>
             <span class="count">Loghi di squadre in rilievo, 25×25 cm</span>
           </div>
         </a>
-        <a class="cat-card" href="espositori-giochi.html">
-          <img loading="lazy" decoding="async" src="site_images/espo_ps5.jpg" alt="Espositore per videogioco PS5">
+        <a class="cat-card" data-category-slideshow="giochi" href="espositori-giochi.html">
+          <img loading="lazy" decoding="async" src="site_images/giochi-ambientati/ps5.webp" alt="Espositore per videogioco PS5">
           <div class="overlay">
             <h3>Espositori giochi</h3>
             <span class="count">Un supporto per ogni titolo</span>
           </div>
         </a>
-        <a class="cat-card" href="espositori-console.html">
-          <img loading="lazy" decoding="async" src="site_images/console/game-boy-color-con-console.jpg" alt="Stand per Game Boy Color con console esposta">
+        <a class="cat-card" data-category-slideshow="console" href="espositori-console.html">
+          <img loading="lazy" decoding="async" src="site_images/console-ambientati/game-boy-color.webp" alt="Stand per Game Boy Color senza console">
           <div class="overlay">
             <h3>Espositori console</h3>
             <span class="count">Stand per PlayStation, Game Boy e Switch</span>
@@ -88,6 +94,7 @@ gtag("config", "G-C6DGYZ65X0");
     </div>
   </section>
 
+  <div class="wrap"><section class="collector-section" id="set-collezionisti" aria-labelledby="sets-title"><div class="section-heading"><span class="eyebrow">La combinazione la scegli tu</span><h2 id="sets-title">Componi il tuo set</h2><p>Scegli i supporti e le quantità per la tua collezione, anche combinando modelli diversi.</p></div><div class="discount-strip"><span><strong>3–4 supporti</strong> −10%</span><span><strong>5 o più supporti</strong> −20%</span><small>Sconto sui supporti, spedizione esclusa.</small></div><div class="collector-grid collector-grid-two"><article class="collector-card"><span class="tag">Espositori giochi</span><h3>I tuoi giochi, il tuo set</h3><p>Seleziona le piattaforme e quanti espositori vuoi per ciascuna. Prezzi e sconto si aggiornano mentre scegli.</p><a class="btn btn-primary" href="componi-set.html?tipo=giochi">Scegli gli espositori giochi →</a></article><article class="collector-card"><span class="tag">Stand console</span><h3>Dai spazio alla tua collezione</h3><p>Scegli i supporti per le tue console, con le versioni PS2 Slim e Fat separate.</p><a class="btn btn-primary" href="componi-set.html?tipo=console">Scegli gli stand console →</a></article></div></section></div>
   <section class="block tinted">
     <div class="wrap">
       <span class="kicker">Stampa su richiesta</span>
@@ -117,30 +124,12 @@ gtag("config", "G-C6DGYZ65X0");
     </div>
   </section>
 
-  <section class="block">
-    <div class="wrap">
-      <span class="kicker">Perché Print3D4You</span>
-      <h2>Controllo, qualità, consegna</h2>
-      <div class="grid-4">
-        <div class="feat">
-          <h4>🧠 Controllo tecnico</h4>
-          <p>Revisione manuale di ogni file prima della stampa.</p>
-        </div>
-        <div class="feat">
-          <h4>⚙️ Alta qualità</h4>
-          <p>Parametri di stampa ottimizzati per ogni materiale.</p>
-        </div>
-        <div class="feat">
-          <h4>🎨 Finiture curate</h4>
-          <p>Verniciature ed effetti fatti a mano sui pezzi in catalogo.</p>
-        </div>
-        <div class="feat">
-          <h4>🚚 Produzione e spedizione</h4>
-          <p>Indicativamente entro 5 giorni dalla conferma dell’ordine. I tempi di consegna del corriere sono aggiuntivi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="block" id="come-lavoriamo"><div class="wrap"><span class="eyebrow">DAMA_Lab, dal progetto al pezzo</span><h2>Come lavoriamo</h2><p class="lead">Ogni richiesta parte da un confronto: scegliamo insieme il supporto, i colori e il materiale adatto all’utilizzo.</p><div class="work-grid">
+ <article><span class="step-number">01</span><h3>Definiamo i dettagli</h3><p>Ci indichi modello, quantità, colori ed eventuali personalizzazioni. Per una stampa su richiesta puoi inviare anche il tuo file 3D.</p></article>
+ <article><span class="step-number">02</span><h3>Concordiamo il preventivo</h3><p>Valutiamo la richiesta e precisiamo costi, spedizione e tempi prima della tua conferma. I prodotti del catalogo sono in PLA.</p></article>
+ <article><span class="step-number">03</span><h3>Stampiamo il tuo progetto</h3><p>Dopo la conferma realizziamo il pezzo con le caratteristiche concordate. La stampa 3D può lasciare piccoli strati visibili sulla superficie.</p></article>
+ <article><span class="step-number">04</span><h3>Prepariamo la spedizione</h3><p>Prepariamo il pezzo e l’imballaggio per l’invio. Per i prodotti standard, produzione e spedizione sono indicative entro 5 giorni dalla conferma; la consegna richiede i tempi del corriere.</p></article>
+ </div><a class="btn btn-primary" href="richiesta.html">Parliamo del tuo progetto →</a></div></section>
 
   <section class="block" id="domande">
     <div class="wrap faq-wrap">

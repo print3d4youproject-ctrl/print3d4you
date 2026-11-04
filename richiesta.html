@@ -7,7 +7,11 @@
 <title>Richiedi un preventivo | Print3D4You</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=logo-dama-1">
+<link rel="stylesheet" href="styles.css?v=catalogo-20261104">
+
+
+
+
 <script>
 window.TRACKING_CONFIG = { measurementId: "G-C6DGYZ65X0" };
 </script>
@@ -19,7 +23,8 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
-<script src="site.js" defer></script>
+<script src="catalogo.js?v=catalogo-20261104" defer></script>
+<script src="site.js?v=catalogo-20261104" defer></script>
 
 </head>
 <body>
@@ -49,10 +54,10 @@ gtag("config", "G-C6DGYZ65X0");
 
     <section class="request-selection" id="request-selection" hidden aria-labelledby="selected-title">
       <span class="eyebrow">La tua selezione</span><h2 id="selected-title"></h2>
-      <p>Copia il prodotto e incollalo nel campo “Vorrei realizzare…” del modulo, aggiungendo quantità e personalizzazioni.</p>
-      <button class="btn btn-ghost" type="button" id="copy-product">Copia il prodotto</button>
+      <p>La selezione qui sotto è pronta da copiare nel campo “Vorrei realizzare…” del modulo. Puoi anche preparare una richiesta via email.</p>
+      <button class="btn btn-ghost" type="button" id="copy-product">Copia tutti i dettagli</button>
       <span id="copy-status" role="status"></span>
-      <p><a href="richiesta.html">Preferisco richiedere un altro progetto</a></p>
+      <dl id="selected-details" class="selection-details"></dl><a id="email-selection" class="btn btn-primary" href="mailto:print3d4you.project@gmail.com">Prepara email di richiesta →</a><p class="quote-hint">Si apre la tua applicazione email con i dettagli: controllali e aggiungi il tuo messaggio prima di inviare. Il preventivo verrà confermato dopo la valutazione.</p><p><a href="richiesta.html">Preferisco richiedere un altro progetto</a></p>
     </section>
     <p class="form-help">File accettati: STL, OBJ e 3MF, fino a 10 MB. Per file più grandi puoi inserire un link condivisibile nella descrizione. Non sai quale materiale usare? Scrivi “Consigliatemi voi”.</p>
     <div class="form-card">
