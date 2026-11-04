@@ -45,7 +45,7 @@ img{ max-width:100%; display:block; }
 /* ---- Header ---- */
 header.site{
   position:sticky; top:0; z-index:50;
-  background:rgba(11,13,18,0.86);
+  background:#000;
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
 }
@@ -53,9 +53,8 @@ header.site{
   display:flex; align-items:center; justify-content:space-between;
   padding:16px 24px; max-width:var(--maxw); margin:0 auto;
 }
-.nav .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
-.nav .brand img{ height:34px; width:auto; }
-.nav .brand span{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.05rem; color:var(--text); }
+.nav .brand{ display:flex; align-items:center; flex-shrink:0; text-decoration:none; }
+.nav .brand img{ width:290px; height:auto; }
 .nav ul{ list-style:none; display:flex; gap:28px; margin:0; padding:0; }
 .nav ul a{ text-decoration:none; color:var(--text-dim); font-size:0.95rem; transition:color .2s; }
 .nav ul a:hover, .nav ul a.active{ color:var(--text); }
@@ -217,10 +216,9 @@ details p{ margin:16px 0 0; }
 .request-selection p{ font-size:.9rem; margin:14px 0; }
 button.btn{ font:inherit; font-weight:600; cursor:pointer; }
 #copy-status{ display:block; margin-top:10px; font-size:.85rem; }
-@media(max-width:1050px){ .nav{ gap:16px; flex-wrap:wrap; } .nav ul{ gap:16px; } .nav .brand span{ display:none; } .hero-split{ gap:28px; } }
+@media(max-width:1050px){ .nav{ gap:16px; flex-wrap:wrap; } .nav ul{ gap:16px; } .hero-split{ gap:28px; } }
 @media(max-width:900px){
   .nav{ position:relative; }
-  .nav .brand span{ display:inline; }
   .nav-toggle{ display:inline-flex; align-items:center; gap:12px; margin-left:auto; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:10px 14px; font:inherit; cursor:pointer; }
   .nav ul#main-menu{ display:flex; order:4; width:100%; flex-wrap:wrap; }
   .nav.js-navigation:has(.nav-toggle[aria-expanded="false"]) ul#main-menu{ display:none; }
@@ -231,8 +229,7 @@ button.btn{ font:inherit; font-weight:600; cursor:pointer; }
 }
 @media(max-width:640px){
   .nav{ padding:12px 18px; gap:10px; }
-  .nav .brand img{ height:28px; }
-  .nav .brand span{ font-size:.95rem; }
+  .nav .brand img{ width:clamp(170px,58vw,230px); height:auto; }
   .nav .cta{ display:none; }
   .nav ul#main-menu{ flex-direction:column; gap:0; }
   .hero-split{ grid-template-columns:1fr; padding-top:36px; gap:32px; }
