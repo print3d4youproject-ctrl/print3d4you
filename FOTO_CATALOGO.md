@@ -19,3 +19,7 @@ Use case: lighting-weather. Image 1 is the actual physical EMPTY console display
 Xbox One e Xbox Series: v2; PS Vita, Wii e 3DS: v3. File PNG master e WebP pubblicati in site_images/giochi-ambientati.
 
 Prompt finale: custodie verticali aderenti al supporto, senza spazi laterali; forme autentiche della custodia (Xbox Blu-ray 135:171; PS Vita 104:135; Wii DVD 135:190; 3DS quasi quadrato 135:122). Ridurre il frontale dello stand senza alterare scritte/colori; coprire soltanto il bordo inferiore della custodia, conservare la copertina visibile. Stesso sfondo approvato; prodotto intero centrato con margini. Wii Sports Resort per Wii e Pokémon X per 3DS. Elaborazione con ImageGen integrato.
+
+## PSP e PS2
+
+Aggiunte ambientazioni PSP e PS2 partendo dalle anteprime dei modelli: geometria, logo, colore e appoggi invariati; prodotto vuoto, interamente centrato con margini, luce morbida e sfondo antracite/libreria coerente col catalogo. ImageGen integrato. PNG master e WebP in site_images/console-ambientati/psp e ps2, copiati anche in Foto catalogo. Sono anteprime ambientate, non foto di una stampa reale. Stand PS2 disponibile nelle varianti Slim e Fat su indicazione del proprietario.
