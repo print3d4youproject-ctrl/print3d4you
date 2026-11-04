@@ -23,3 +23,7 @@ Prompt finale: custodie verticali aderenti al supporto, senza spazi laterali; fo
 ## PSP e PS2
 
 Aggiunte ambientazioni PSP e PS2 partendo dalle anteprime dei modelli: geometria, logo, colore e appoggi invariati; prodotto vuoto, interamente centrato con margini, luce morbida e sfondo antracite/libreria coerente col catalogo. ImageGen integrato. PNG master e WebP in site_images/console-ambientati/psp e ps2, copiati anche in Foto catalogo. Sono anteprime ambientate, non foto di una stampa reale. Stand PS2 disponibile nelle varianti Slim e Fat su indicazione del proprietario.
+
+## Correzione fedeltà PSP e PS2
+
+Scartate le prime ambientazioni PSP/PS2 perché alteravano la forma. Versioni finali psp-fedele-v2 e ps2-fedele-v2: basate sulle immagini thumbnail_middle originali incluse nei 3MF, estratte senza modifiche. Prompt ImageGen integrato: sostituire solo sfondo e luce; mantenere sagoma, angolo di ripresa, base, posizioni e spessori degli appoggi, frontale, scritte e imperfezioni. Non ricostruire o idealizzare il prodotto. Canvas quadrato estendendo lo sfondo con margini. Riferimento di sfondo: ambiente approvato PS1. PNG e WebP in site_images/console-ambientati; copie finali aggiornate in Foto catalogo.
