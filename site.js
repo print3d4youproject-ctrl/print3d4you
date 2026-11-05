@@ -18,6 +18,42 @@
     });
   }
 
+  const hero = document.querySelector('[data-hero-slideshow]');
+  if (hero) {
+    const slides = [
+      { image: 'site_images/quadro_inter_1.jpg', alt: 'Quadro Inter con logo in rilievo', text: 'La squadra del cuore, in rilievo.', link: 'quadri.html', label: 'Scopri i quadri →' },
+      { image: 'site_images/giochi-ambientati/ps5.webp', alt: 'Espositore per giochi PS5', text: 'I tuoi titoli preferiti, in primo piano.', link: 'espositori-giochi.html', label: 'Scopri gli espositori giochi →' },
+      { image: 'site_images/console-ambientati/ps1.webp', alt: 'Stand PlayStation 1 senza console', text: 'Uno spazio speciale per la tua console.', link: 'espositori-console.html', label: 'Scopri gli stand console →' }
+    ];
+    const initial = hero.querySelector('img');
+    const nextImage = initial.cloneNode(); nextImage.removeAttribute('fetchpriority'); nextImage.alt = ''; nextImage.setAttribute('aria-hidden', 'true');
+    initial.classList.add('hero-slide'); nextImage.classList.add('hero-slide', 'is-hidden'); initial.after(nextImage);
+    const layers = [initial, nextImage];
+    const caption = hero.querySelector('figcaption span');
+    const link = hero.querySelector('figcaption a');
+    const button = hero.querySelector('[data-hero-pause]');
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = motion.matches, index = 0, active = 0, loading = false;
+    const sync = () => { button.textContent = paused ? 'Avvia foto' : 'Pausa foto'; button.setAttribute('aria-pressed', String(paused)); };
+    button.hidden = false; sync();
+    button.addEventListener('click', () => { paused = !paused; sync(); });
+    motion.addEventListener('change', event => { paused = event.matches; sync(); });
+    setInterval(async () => {
+      if (paused || loading || document.hidden || hero.matches(':hover, :focus-within')) return;
+      loading = true;
+      const nextIndex = (index + 1) % slides.length, slide = slides[nextIndex], target = layers[1 - active];
+      target.src = slide.image;
+      try {
+        await target.decode();
+        if (paused || document.hidden || hero.matches(':hover, :focus-within')) return;
+        target.alt = slide.alt; target.removeAttribute('aria-hidden');
+        layers[active].setAttribute('aria-hidden', 'true'); layers[active].classList.add('is-hidden'); target.classList.remove('is-hidden');
+        caption.textContent = slide.text; link.href = slide.link; link.textContent = slide.label;
+        active = 1 - active; index = nextIndex;
+      } catch {} finally { loading = false; }
+    }, 3000);
+  }
+
   const filter = document.querySelector('#platform-filter');
   if (filter) {
     const cards = [...document.querySelectorAll('.product-card')];
