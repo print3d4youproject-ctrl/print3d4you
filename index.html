@@ -7,7 +7,7 @@
 <title>Print3D4You | Stampa 3D su richiesta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=hero-20261105">
+<link rel="stylesheet" href="styles.css?v=ricerca-20261105">
 
 
 
@@ -24,7 +24,7 @@ gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script>
 <script src="catalogo.js?v=catalogo-20261104" defer></script>
-<script src="site.js?v=hero-20261105" defer></script>
+<script src="site.js?v=ricerca-20261105" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -58,16 +58,25 @@ gtag("config", "G-C6DGYZ65X0");
       <p class="hero-note">Preventivo gratuito · Revisione del modello · Paghi dopo aver accettato</p>
     </div>
     <figure class="hero-visual" data-hero-slideshow>
-      <button type="button" class="hero-motion" data-hero-pause hidden aria-pressed="false">Pausa foto</button>
       <img src="site_images/quadro_inter_1.jpg" alt="Quadro Inter con logo in rilievo e sfondo effetto marmo" fetchpriority="high" width="1024" height="1024">
       <figcaption><span>La squadra del cuore, in rilievo.</span><a href="quadri.html">Scopri i quadri →</a></figcaption>
     </figure>
   </section>
 
+
+  <section class="catalog-search wrap" aria-labelledby="search-title" hidden>
+    <h2 id="search-title">Cosa cerchi per la tua collezione?</h2>
+    <form id="catalog-search-form" role="search">
+      <label for="catalog-search-input">Cerca un prodotto o una console</label>
+      <div class="search-controls"><input id="catalog-search-input" type="search" placeholder="Es. PS2, Game Boy, quadro Inter…" autocomplete="off" maxlength="100"><button class="btn btn-primary" type="submit">Cerca</button></div>
+    </form>
+    <p id="search-status" role="status"></p>
+    <ul id="search-results" class="search-results"></ul>
+  </section>
+
   <section class="categories" id="catalogo">
     <div class="wrap">
       <div class="section-heading"><span class="eyebrow">Il catalogo</span><h2>Un posto speciale per le tue passioni.</h2></div>
-      <button class="category-motion" id="category-motion" type="button" hidden aria-pressed="false">Pausa foto</button>
       <div class="cat-grid">
         <a class="cat-card" data-category-slideshow="quadri" href="quadri.html">
           <img loading="lazy" decoding="async" src="site_images/quadro_inter_1.jpg" alt="Quadro logo squadra di calcio stampato in 3D">
@@ -94,7 +103,7 @@ gtag("config", "G-C6DGYZ65X0");
     </div>
   </section>
 
-  <div class="wrap"><section class="collector-section" id="set-collezionisti" aria-labelledby="sets-title"><div class="section-heading"><span class="eyebrow">La combinazione la scegli tu</span><h2 id="sets-title">Componi il tuo set</h2><p>Scegli i supporti e le quantità per la tua collezione, anche combinando modelli diversi.</p></div><div class="discount-strip"><span><strong>3–4 supporti</strong> −10%</span><span><strong>5 o più supporti</strong> −20%</span><small>Sconto sui supporti, spedizione esclusa.</small></div><div class="collector-grid collector-grid-two"><article class="collector-card"><span class="tag">Espositori giochi</span><h3>I tuoi giochi, il tuo set</h3><p>Seleziona le piattaforme e quanti espositori vuoi per ciascuna. Prezzi e sconto si aggiornano mentre scegli.</p><a class="btn btn-primary" href="componi-set.html?tipo=giochi">Scegli gli espositori giochi →</a></article><article class="collector-card"><span class="tag">Stand console</span><h3>Dai spazio alla tua collezione</h3><p>Scegli i supporti per le tue console, con le versioni PS2 Slim e Fat separate.</p><a class="btn btn-primary" href="componi-set.html?tipo=console">Scegli gli stand console →</a></article></div></section></div>
+  <div class="wrap"><section class="collector-section" id="set-collezionisti" aria-labelledby="sets-title"><div class="section-heading"><span class="eyebrow">La combinazione la scegli tu</span><h2 id="sets-title">Componi il tuo set</h2><p>Scegli i supporti e le quantità per la tua collezione, anche combinando modelli diversi.</p></div><div class="discount-strip"><span><strong>3–4 supporti</strong> −10%</span><span><strong>5 o più supporti</strong> −20%</span><small>Sconto sui supporti, spedizione esclusa.</small></div><div class="collector-grid collector-grid-two"><article class="collector-card"><span class="tag">Espositori giochi</span><h3>I tuoi giochi, il tuo set</h3><p>Seleziona le piattaforme e quanti espositori vuoi per ciascuna. Prezzi e sconto si aggiornano mentre scegli.</p><a class="btn btn-primary" href="componi-set.html?tipo=giochi">Scegli gli espositori giochi →</a></article><article class="collector-card"><span class="tag">Stand console</span><h3>Dai spazio alla tua collezione</h3><p>Scegli modelli e quantità per creare il set adatto alla tua collezione.</p><a class="btn btn-primary" href="componi-set.html?tipo=console">Scegli gli stand console →</a></article></div></section></div>
   <section class="block tinted">
     <div class="wrap">
       <span class="kicker">Stampa su richiesta</span>

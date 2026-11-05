@@ -18,12 +18,13 @@
     });
   }
 
+  const catalog = Array.isArray(window.PRINT_CATALOG) ? window.PRINT_CATALOG : [];
   const hero = document.querySelector('[data-hero-slideshow]');
   if (hero) {
-    const slides = [
-      { image: 'site_images/quadro_inter_1.jpg', alt: 'Quadro Inter con logo in rilievo', text: 'La squadra del cuore, in rilievo.', link: 'quadri.html', label: 'Scopri i quadri →' },
-      { image: 'site_images/giochi-ambientati/ps5.webp', alt: 'Espositore per giochi PS5', text: 'I tuoi titoli preferiti, in primo piano.', link: 'espositori-giochi.html', label: 'Scopri gli espositori giochi →' },
-      { image: 'site_images/console-ambientati/ps1.webp', alt: 'Stand PlayStation 1 senza console', text: 'Uno spazio speciale per la tua console.', link: 'espositori-console.html', label: 'Scopri gli stand console →' }
+    const groups = [
+      { images: ['site_images/quadro_inter_1.jpg','site_images/quadro_milan_1.jpg','site_images/quadro_juve_1.jpg','site_images/quadro_napoli_1.jpg'], text: 'La squadra del cuore, in rilievo.', link: 'quadri.html', label: 'Scopri i quadri →', alt: 'Quadro con logo di squadra in rilievo', index: 0 },
+      { images: [...new Set(catalog.filter(p => p.type === 'giochi').map(p => p.image))], text: 'I tuoi titoli preferiti, in primo piano.', link: 'espositori-giochi.html', label: 'Scopri gli espositori giochi →', alt: 'Espositore per videogiochi', index: -1 },
+      { images: [...new Set(catalog.filter(p => p.type === 'console' && !p.imageNote).map(p => p.image))], text: 'Uno spazio speciale per la tua console.', link: 'espositori-console.html', label: 'Scopri gli stand console →', alt: 'Stand per console senza console', index: -1 }
     ];
     const initial = hero.querySelector('img');
     const nextImage = initial.cloneNode(); nextImage.removeAttribute('fetchpriority'); nextImage.alt = ''; nextImage.setAttribute('aria-hidden', 'true');
@@ -31,25 +32,23 @@
     const layers = [initial, nextImage];
     const caption = hero.querySelector('figcaption span');
     const link = hero.querySelector('figcaption a');
-    const button = hero.querySelector('[data-hero-pause]');
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let paused = motion.matches, index = 0, active = 0, loading = false;
-    const sync = () => { button.textContent = paused ? 'Avvia foto' : 'Pausa foto'; button.setAttribute('aria-pressed', String(paused)); };
-    button.hidden = false; sync();
-    button.addEventListener('click', () => { paused = !paused; sync(); });
-    motion.addEventListener('change', event => { paused = event.matches; sync(); });
+    motion.addEventListener('change', event => { paused = event.matches; });
     setInterval(async () => {
-      if (paused || loading || document.hidden || hero.matches(':hover, :focus-within')) return;
+      if (paused || loading || document.hidden) return;
       loading = true;
-      const nextIndex = (index + 1) % slides.length, slide = slides[nextIndex], target = layers[1 - active];
-      target.src = slide.image;
+      const nextIndex = (index + 1) % groups.length, slide = groups[nextIndex], target = layers[1 - active];
+      if (!slide.images.length) { loading = false; return; }
+      const articleIndex = (slide.index + 1) % slide.images.length;
+      target.src = slide.images[articleIndex];
       try {
         await target.decode();
-        if (paused || document.hidden || hero.matches(':hover, :focus-within')) return;
+        if (paused || document.hidden) return;
         target.alt = slide.alt; target.removeAttribute('aria-hidden');
         layers[active].setAttribute('aria-hidden', 'true'); layers[active].classList.add('is-hidden'); target.classList.remove('is-hidden');
         caption.textContent = slide.text; link.href = slide.link; link.textContent = slide.label;
-        active = 1 - active; index = nextIndex;
+        active = 1 - active; index = nextIndex; slide.index = articleIndex;
       } catch {} finally { loading = false; }
     }, 3000);
   }
@@ -98,10 +97,40 @@
     }));
   }
 
-  const catalog = Array.isArray(window.PRINT_CATALOG) ? window.PRINT_CATALOG : [];
+  const searchForm = document.querySelector('#catalog-search-form');
+  if (searchForm) {
+    searchForm.closest('.catalog-search').hidden = false;
+    const input = document.querySelector('#catalog-search-input');
+    const results = document.querySelector('#search-results');
+    const status = document.querySelector('#search-status');
+    const slug = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const entries = catalog.map(product => {
+      const name = /^Stand PS[234] /.test(product.name) && !product.name.startsWith('Stand PSP') ? 'Stand PS2 Slim / Fat' : product.name;
+      return { name: product.name, category: product.type === 'giochi' ? 'Espositori giochi' : 'Stand console', href: (product.type === 'giochi' ? 'espositori-giochi.html' : 'espositori-console.html') + '#' + slug(name) };
+    });
+    ['Inter','Milan','Juve','Napoli'].forEach(team => entries.push({ name: 'Quadro ' + team, category: 'Quadri', href: 'quadri.html#quadro-' + team.toLowerCase() }));
+    const normalise = value => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/play\s*station/g, 'ps').replace(/nintendo\s*switch/g, 'switch').replace(/game\s*boy/g, 'gameboy').replace(/juventus/g, 'juve').replace(/[^a-z0-9]+/g, ' ').trim();
+    const updateSearch = () => {
+      results.replaceChildren();
+      const query = normalise(input.value);
+      if (!query) { status.textContent = ''; return; }
+      const tokens = query.split(' ');
+      const matches = entries.filter(item => tokens.every(token => normalise(item.name + ' ' + item.category).includes(token)));
+      status.textContent = matches.length ? matches.length + ' prodotti trovati' : 'Nessun prodotto trovato. Prova un altro modello o richiedi una stampa su misura.';
+      matches.forEach(item => {
+        const row = document.createElement('li'); const link = document.createElement('a'); link.href = item.href;
+        const title = document.createElement('strong'); title.textContent = item.name;
+        const category = document.createElement('span'); category.textContent = item.category + ' →';
+        link.append(title, category); row.append(link); results.append(row);
+      });
+      if (!matches.length) { const row = document.createElement('li'); const link = document.createElement('a'); link.href = 'richiesta.html'; link.textContent = 'Richiedi una stampa su misura →'; row.append(link); results.append(row); }
+    };
+    input.addEventListener('input', updateSearch);
+    searchForm.addEventListener('submit', event => { event.preventDefault(); updateSearch(); const first = results.querySelector('a'); if (first) first.focus(); });
+  }
+
   const categoryCards = [...document.querySelectorAll('[data-category-slideshow]')];
-  const motionButton = document.querySelector('#category-motion');
-  if (categoryCards.length && motionButton) {
+  if (categoryCards.length) {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let paused = reducedMotion.matches;
     const slideshows = categoryCards.map(card => {
@@ -114,15 +143,11 @@
       first.classList.add('category-slide'); second.classList.add('category-slide', 'is-hidden'); first.after(second);
       return { card, images, layers: [first, second], active: 0, index: 0, loading: false };
     });
-    motionButton.hidden = false;
-    const syncButton = () => { motionButton.textContent = paused ? 'Avvia foto' : 'Pausa foto'; motionButton.setAttribute('aria-pressed', String(paused)); };
-    motionButton.addEventListener('click', () => { paused = !paused; syncButton(); });
-    reducedMotion.addEventListener('change', event => { paused = event.matches; syncButton(); });
-    syncButton();
+    reducedMotion.addEventListener('change', event => { paused = event.matches; });
     setInterval(() => {
       if (paused || document.hidden) return;
       slideshows.forEach(async show => {
-        if (show.loading || show.images.length < 2 || show.card.matches(':hover, :focus-within')) return;
+        if (show.loading || show.images.length < 2) return;
         show.loading = true;
         const nextIndex = (show.index + 1) % show.images.length;
         const next = show.layers[1 - show.active];
