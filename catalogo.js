@@ -158,7 +158,7 @@ window.PRINT_CATALOG = [
     "name": "Stand PlayStation 1",
     "type": "console",
     "image": "site_images/console-ambientati/ps1.webp",
-    "price": 1000
+    "price": 1200
   },
   {
     "id": "console-2",
@@ -192,35 +192,35 @@ window.PRINT_CATALOG = [
     "id": "console-5",
     "name": "Stand Game Boy",
     "type": "console",
-    "image": "site_images/console-ambientati/game-boy.webp",
+    "image": "site_images/console-ambientati/game-boy-con-console.png",
     "price": null
   },
   {
     "id": "console-6",
     "name": "Stand Game Boy Pocket",
     "type": "console",
-    "image": "site_images/console-ambientati/game-boy-pocket.webp",
+    "image": "site_images/console-ambientati/game-boy-pocket-con-console.png",
     "price": null
   },
   {
     "id": "console-7",
     "name": "Stand Game Boy Color",
     "type": "console",
-    "image": "site_images/console-ambientati/game-boy-color.webp",
+    "image": "site_images/console-ambientati/game-boy-color-con-console.png",
     "price": null
   },
   {
     "id": "console-8",
     "name": "Stand Game Boy Advance",
     "type": "console",
-    "image": "site_images/console-ambientati/game-boy-advance.webp",
+    "image": "site_images/console-ambientati/game-boy-advance-con-console.png",
     "price": null
   },
   {
     "id": "console-9",
     "name": "Stand Game Boy Advance SP",
     "type": "console",
-    "image": "site_images/console-ambientati/game-boy-advance-sp.webp",
+    "image": "site_images/console-ambientati/game-boy-advance-sp-con-console.png",
     "price": null
   },
   {

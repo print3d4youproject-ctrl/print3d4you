@@ -19,12 +19,25 @@
   }
 
   const catalog = Array.isArray(window.PRINT_CATALOG) ? window.PRINT_CATALOG : [];
+  // Home console showcase: use the refreshed ambient product photos only.
+  const consoleNintendoImages = [
+    'game-boy-con-console.png',
+    'game-boy-pocket-con-console.png',
+    'game-boy-color-con-console.png',
+    'game-boy-advance-con-console.png',
+    'game-boy-advance-sp-con-console.png'
+  ].map(name => new URL(`site_images/console-ambientati/${name}`, location.href).href);
+  const randomImageIndex = (images, previous) => {
+    if (images.length < 2 || previous < 0 || previous >= images.length) return Math.floor(Math.random() * images.length);
+    const choice = Math.floor(Math.random() * (images.length - 1));
+    return choice >= previous ? choice + 1 : choice;
+  };
   const hero = document.querySelector('[data-hero-slideshow]');
   if (hero) {
     const groups = [
       { images: ['site_images/quadro_inter_1.jpg','site_images/quadro_milan_1.jpg','site_images/quadro_juve_1.jpg','site_images/quadro_napoli_1.jpg'], text: 'La squadra del cuore, in rilievo.', link: 'quadri.html', label: 'Scopri i quadri →', alt: 'Quadro con logo di squadra in rilievo', index: 0 },
       { images: [...new Set(catalog.filter(p => p.type === 'giochi').map(p => p.image))], text: 'I tuoi titoli preferiti, in primo piano.', link: 'espositori-giochi.html', label: 'Scopri gli espositori giochi →', alt: 'Espositore per videogiochi', index: -1 },
-      { images: [...new Set(catalog.filter(p => p.type === 'console' && !p.imageNote).map(p => p.image))], text: 'Uno spazio speciale per la tua console.', link: 'espositori-console.html', label: 'Scopri gli stand console →', alt: 'Stand per console senza console', index: -1 }
+      { images: consoleNintendoImages, text: 'Una vetrina per la tua collezione Nintendo.', link: 'espositori-console.html', label: 'Scopri gli stand console →', alt: 'Console Nintendo esposta sul proprio supporto', index: -1 }
     ];
     const initial = hero.querySelector('img');
     const nextImage = initial.cloneNode(); nextImage.removeAttribute('fetchpriority'); nextImage.alt = ''; nextImage.setAttribute('aria-hidden', 'true');
@@ -40,7 +53,7 @@
       loading = true;
       const nextIndex = (index + 1) % groups.length, slide = groups[nextIndex], target = layers[1 - active];
       if (!slide.images.length) { loading = false; return; }
-      const articleIndex = (slide.index + 1) % slide.images.length;
+      const articleIndex = randomImageIndex(slide.images, slide.index);
       target.src = slide.images[articleIndex];
       try {
         await target.decode();
@@ -136,12 +149,12 @@
     const slideshows = categoryCards.map(card => {
       const first = card.querySelector('img');
       const paintings = ['site_images/quadro_inter_1.jpg', 'site_images/quadro_milan_1.jpg', 'site_images/quadro_juve_1.jpg', 'site_images/quadro_napoli_1.jpg'];
-      const sources = card.dataset.categorySlideshow === 'quadri' ? paintings.map(src => new URL(src, location.href).href) : [first.src, ...catalog.filter(product => product.type === card.dataset.categorySlideshow && !product.imageNote).map(product => new URL(product.image, location.href).href)];
+      const sources = card.dataset.categorySlideshow === 'quadri' ? paintings.map(src => new URL(src, location.href).href) : card.dataset.categorySlideshow === 'console' ? consoleNintendoImages : [first.src, ...catalog.filter(product => product.type === card.dataset.categorySlideshow && !product.imageNote).map(product => new URL(product.image, location.href).href)];
       const images = [...new Set(sources)];
       const second = first.cloneNode(); second.alt = ''; second.setAttribute('aria-hidden', 'true');
       first.alt = card.dataset.categorySlideshow === 'quadri' ? 'Quadri con loghi di squadre stampati in 3D' : card.dataset.categorySlideshow === 'giochi' ? 'Espositori per giochi stampati in 3D' : 'Stand per console stampati in 3D, senza console';
       first.classList.add('category-slide'); second.classList.add('category-slide', 'is-hidden'); first.after(second);
-      return { card, images, layers: [first, second], active: 0, index: 0, loading: false };
+      return { card, images, layers: [first, second], active: 0, index: images.indexOf(first.src), loading: false };
     });
     reducedMotion.addEventListener('change', event => { paused = event.matches; });
     setInterval(() => {
@@ -149,7 +162,7 @@
       slideshows.forEach(async show => {
         if (show.loading || show.images.length < 2) return;
         show.loading = true;
-        const nextIndex = (show.index + 1) % show.images.length;
+        const nextIndex = randomImageIndex(show.images, show.index);
         const next = show.layers[1 - show.active];
         next.src = show.images[nextIndex];
         try {

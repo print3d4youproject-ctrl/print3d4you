@@ -7,7 +7,7 @@
 <title>Print3D4You | Stampa 3D su richiesta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=ricerca-20261105">
+<link rel="stylesheet" href="styles.css?v=20261110">
 
 
 
@@ -22,9 +22,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
-<script src="tracking.js" defer></script>
-<script src="catalogo.js?v=catalogo-20261104" defer></script>
-<script src="site.js?v=ricerca-20261105" defer></script>
+<script src="tracking.js" defer></script><script src="catalogo.js?v=20261110" defer></script>
+<script src="site.js?v=20261110" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -55,6 +54,14 @@ gtag("config", "G-C6DGYZ65X0");
         <a class="btn btn-primary" href="#catalogo">Esplora il catalogo</a>
         <a class="btn btn-ghost" href="richiesta.html">Stampa un mio file</a>
       </div>
+      <section class="catalog-search hero-search" aria-label="Cerca nel catalogo" hidden>
+        <form id="catalog-search-form" role="search">
+          <label for="catalog-search-input">Cerca nel catalogo</label>
+          <div class="search-controls"><input id="catalog-search-input" type="search" placeholder="Es. PS2, Game Boy, quadro Inter…" autocomplete="off" maxlength="100"><button class="btn btn-primary" type="submit">Cerca</button></div>
+        </form>
+        <p id="search-status" role="status"></p>
+        <ul id="search-results" class="search-results"></ul>
+      </section>
       <p class="hero-note">Preventivo gratuito · Revisione del modello · Paghi dopo aver accettato</p>
     </div>
     <figure class="hero-visual" data-hero-slideshow>
@@ -62,18 +69,6 @@ gtag("config", "G-C6DGYZ65X0");
       <figcaption><span>La squadra del cuore, in rilievo.</span><a href="quadri.html">Scopri i quadri →</a></figcaption>
     </figure>
   </section>
-
-
-  <section class="catalog-search wrap" aria-labelledby="search-title" hidden>
-    <h2 id="search-title">Cosa cerchi per la tua collezione?</h2>
-    <form id="catalog-search-form" role="search">
-      <label for="catalog-search-input">Cerca un prodotto o una console</label>
-      <div class="search-controls"><input id="catalog-search-input" type="search" placeholder="Es. PS2, Game Boy, quadro Inter…" autocomplete="off" maxlength="100"><button class="btn btn-primary" type="submit">Cerca</button></div>
-    </form>
-    <p id="search-status" role="status"></p>
-    <ul id="search-results" class="search-results"></ul>
-  </section>
-
   <section class="categories" id="catalogo">
     <div class="wrap">
       <div class="section-heading"><span class="eyebrow">Il catalogo</span><h2>Un posto speciale per le tue passioni.</h2></div>
@@ -86,14 +81,14 @@ gtag("config", "G-C6DGYZ65X0");
           </div>
         </a>
         <a class="cat-card" data-category-slideshow="giochi" href="espositori-giochi.html">
-          <img loading="lazy" decoding="async" src="site_images/giochi-ambientati/ps5.webp" alt="Espositore per videogioco PS5">
+          <img loading="lazy" decoding="async" src="site_images/giochi-ambientati/3ds-v3.webp" alt="Espositore per Nintendo 3DS">
           <div class="overlay">
             <h3>Espositori giochi</h3>
             <span class="count">Un supporto per ogni titolo</span>
           </div>
         </a>
         <a class="cat-card" data-category-slideshow="console" href="espositori-console.html">
-          <img loading="lazy" decoding="async" src="site_images/console-ambientati/game-boy-color.webp" alt="Stand per Game Boy Color senza console">
+          <img loading="lazy" decoding="async" src="site_images/console-ambientati/game-boy-color-con-console.png" alt="Game Boy Color esposto sul supporto">
           <div class="overlay">
             <h3>Espositori console</h3>
             <span class="count">Stand per PlayStation, Game Boy e Switch</span>
