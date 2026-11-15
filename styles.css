@@ -368,4 +368,50 @@ button.btn{ font:inherit; font-weight:600; cursor:pointer; }
 .search-results span,#search-status{font-size:.9rem;color:var(--text-dim);}
 .product-card[id]{scroll-margin-top:120px;}
 .product-card:target{outline:2px solid var(--accent);outline-offset:4px;}
+
+.product-carousel{position:relative;min-width:0}
+.product-carousel .img-wrap{display:block;position:relative;isolation:isolate;cursor:zoom-in;background:#000}
+.product-carousel .img-wrap img{object-fit:contain;transform:none}
+.product-carousel .img-wrap .carousel-backdrop{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  object-fit:cover;
+  transform:scale(1.15);
+  filter:blur(22px) brightness(.55);
+  pointer-events:none;
+}
+
+/* Lift shadows on the darker catalog imports without changing the files. */
+:is(.product-card, .product-zoom) img:not(.carousel-backdrop):is(
+  [src$="/gallery/stand-game-boy-color-1.webp"],
+  [src$="/gallery/quadro-milan-1.jpeg"],
+  [src$="/gallery/quadro-milan-2.jpeg"],
+  [src$="/gallery/quadro-milan-4.jpeg"]
+){filter:brightness(1.13) contrast(.89)}
+
+:is(.product-card, .product-zoom) img:not(.carousel-backdrop):is(
+  [src$="/gallery/stand-game-boy-advance-1.webp"],
+  [src$="/gallery/stand-game-boy-color-2.webp"],
+  [src$="/gallery/quadro-juve-1.jpeg"],
+  [src$="/gallery/quadro-napoli-1.jpeg"]
+){filter:brightness(1.07) contrast(.94)}
+
+:is(.product-card, .product-zoom) img:not(.carousel-backdrop)[src$="/console/game-boy-con-console.jpg"]{
+  filter:brightness(1.09) contrast(.95);
+}
+
+:is(.product-card, .product-zoom) img:not(.carousel-backdrop):is(
+  [src$="/gallery/quadro-juve-3.jpeg"],
+  [src$="/gallery/quadro-napoli-4.jpeg"]
+){filter:brightness(.96)}
+.product-carousel button,.carousel-count{position:absolute;background:rgba(0,0,0,.75);color:white}
+.product-carousel button{top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid #aaa;border-radius:50%;font:28px/1 system-ui;cursor:pointer}
+.carousel-prev{left:8px}
+.carousel-next{right:8px}
+.carousel-count{bottom:8px;right:8px;border-radius:20px;padding:3px 9px;font-size:.75rem;pointer-events:none}
+@media (hover:hover) and (pointer:fine){
+  .product-carousel button{opacity:0;transition:opacity .15s}
+  .product-carousel:hover button,.product-carousel:focus-within button{opacity:1}
+}
 @media(max-width:640px){.search-results{grid-template-columns:1fr;}.search-controls .btn{padding:12px 18px;}}

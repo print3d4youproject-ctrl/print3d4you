@@ -158,7 +158,7 @@ window.PRINT_CATALOG = [
     "name": "Stand PlayStation 1",
     "type": "console",
     "image": "site_images/console-ambientati/ps1.webp",
-    "price": 1200
+    "price": 1000
   },
   {
     "id": "console-2",
@@ -172,7 +172,7 @@ window.PRINT_CATALOG = [
     "name": "Stand PSP",
     "type": "console",
     "image": "site_images/console-ambientati/psp-fedele-v2.webp",
-    "price": null
+    "price": 800
   },
   {
     "id": "console-4-1",
@@ -193,35 +193,35 @@ window.PRINT_CATALOG = [
     "name": "Stand Game Boy",
     "type": "console",
     "image": "site_images/console-ambientati/game-boy-con-console.png",
-    "price": null
+    "price": 600
   },
   {
     "id": "console-6",
     "name": "Stand Game Boy Pocket",
     "type": "console",
     "image": "site_images/console-ambientati/game-boy-pocket-con-console.png",
-    "price": null
+    "price": 600
   },
   {
     "id": "console-7",
     "name": "Stand Game Boy Color",
     "type": "console",
     "image": "site_images/console-ambientati/game-boy-color-con-console.png",
-    "price": null
+    "price": 600
   },
   {
     "id": "console-8",
     "name": "Stand Game Boy Advance",
     "type": "console",
     "image": "site_images/console-ambientati/game-boy-advance-con-console.png",
-    "price": null
+    "price": 600
   },
   {
     "id": "console-9",
     "name": "Stand Game Boy Advance SP",
     "type": "console",
     "image": "site_images/console-ambientati/game-boy-advance-sp-con-console.png",
-    "price": null
+    "price": 600
   },
   {
     "id": "console-10",
@@ -268,5 +268,33 @@ window.PRINT_CATALOG = [
     "image": "site_images/console-ambientati/ps2-fedele-v2.webp",
     "price": 1000,
     "imageNote": "Stile di riferimento PS2: foto del modello non disponibile"
+  },
+  {
+    "id": "console-ps1-controller",
+    "name": "Stand PlayStation 1 con porta controller",
+    "type": "console",
+    "image": "site_images/console-ambientati/ps1-con-console-1.png",
+    "price": 1200
+  },
+  {
+    "id": "console-color-colore",
+    "name": "Stand Game Boy Color con scritta colorata",
+    "type": "console",
+    "image": "site_images/gallery/stand-game-boy-color-principale.png",
+    "price": 700
+  },
+  {
+    "id": "console-advance-colore",
+    "name": "Stand Game Boy Advance con scritta colorata",
+    "type": "console",
+    "image": "site_images/gallery/stand-game-boy-advance-1.webp",
+    "price": 700
+  },
+  {
+    "id": "console-advance-sp-colore",
+    "name": "Stand Game Boy Advance SP con scritta blu",
+    "type": "console",
+    "image": "site_images/gallery/stand-game-boy-advance-sp-1.webp",
+    "price": 700
   }
 ];

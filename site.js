@@ -83,6 +83,65 @@
     update();
   }
 
+  document.querySelectorAll('.product-card').forEach(card => {
+    const link = card.querySelector('[data-product-image]');
+    const image = link?.querySelector('img');
+    if (!image) return;
+
+    const template = card.querySelector('template.product-photos');
+    const additional = template ? [...template.content.querySelectorAll('a')] : [];
+    const originals = [...card.querySelectorAll('.product-views a')];
+    const photos = [{ src: link.href, alt: image.alt }];
+    const seen = new Set([link.href]);
+    for (const photo of [...additional, ...originals]) {
+      const src = new URL(photo.getAttribute('href'), document.baseURI).href;
+      if (seen.has(src)) continue;
+      seen.add(src);
+      photos.push({ src, alt: photo.textContent.trim().replace(/\s*↗$/, '') });
+    }
+    if (photos.length < 2) return;
+
+    const gallery = document.createElement('div');
+    gallery.className = 'product-carousel';
+    gallery.setAttribute('role', 'group');
+    gallery.setAttribute('aria-label', 'Foto: ' + (card.querySelector('h3')?.textContent || image.alt));
+    link.before(gallery);
+    gallery.append(link);
+    const backdrop = document.createElement('img');
+    backdrop.className = 'carousel-backdrop';
+    backdrop.alt = '';
+    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.loading = 'lazy';
+    backdrop.src = photos[0].src;
+    link.append(backdrop);
+    const counter = document.createElement('span');
+    counter.className = 'carousel-count';
+    counter.setAttribute('aria-live', 'polite');
+    counter.textContent = '1 / ' + photos.length;
+    let index = 0;
+
+    for (const direction of [-1, 1]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = direction < 0 ? 'carousel-prev' : 'carousel-next';
+      button.textContent = direction < 0 ? '‹' : '›';
+      button.setAttribute('aria-label', direction < 0 ? 'Foto precedente' : 'Foto successiva');
+      button.addEventListener('click', () => {
+        index = (index + direction + photos.length) % photos.length;
+        const photo = photos[index];
+        link.href = photo.src;
+        link.setAttribute('aria-label', 'Ingrandisci: ' + photo.alt);
+        image.src = photo.src;
+        backdrop.src = photo.src;
+        image.alt = photo.alt;
+        counter.textContent = (index + 1) + ' / ' + photos.length;
+      });
+      gallery.append(button);
+    }
+    gallery.append(counter);
+    originals.forEach(photo => { photo.hidden = true; });
+  });
+
   const imageLinks = [...document.querySelectorAll('[data-product-image]')];
   if (imageLinks.length && typeof HTMLDialogElement !== 'undefined') {
     const dialog = document.createElement('dialog');
