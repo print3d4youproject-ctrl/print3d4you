@@ -7,7 +7,7 @@
 <title>Richiedi una stampa 3D | Print3D4You</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261115-5">
+<link rel="stylesheet" href="styles.css?v=20261115-7">
 
 
 
@@ -23,7 +23,7 @@ gtag("js", new Date());
 gtag("config", "G-C6DGYZ65X0");
 </script>
 <script src="tracking.js" defer></script><script src="catalogo.js?v=20261115-2" defer></script>
-<script src="site.js?v=20261115-3" defer></script>
+<script src="site.js?v=20261116-1" defer></script>
 
 </head>
 <body>
@@ -48,15 +48,16 @@ gtag("config", "G-C6DGYZ65X0");
   <div class="req-wrap">
     <a href="index.html" class="back-link">← Torna alla home</a>
     <h1>Raccontaci cosa vuoi stampare.</h1>
-    <p class="lead">Un prodotto del catalogo o un progetto personale: inviaci i dettagli per ricevere un preventivo gratuito, senza impegno.</p>
+    <p class="lead" id="request-lead">Un prodotto del catalogo o un progetto personale: inviaci i dettagli per ricevere un preventivo gratuito, senza impegno.</p>
 
     <section class="request-selection" id="request-selection" hidden aria-labelledby="selected-title">
-      <span class="eyebrow">La tua selezione</span><h2 id="selected-title"></h2>
-      <p>La selezione qui sotto è pronta da copiare nel campo “Vorrei realizzare…” del modulo. Puoi anche preparare una richiesta via email.</p>
-      <button class="btn btn-ghost" type="button" id="copy-product">Copia tutti i dettagli</button>
-      <span id="copy-status" role="status"></span>
-      <dl id="selected-details" class="selection-details"></dl><a id="email-selection" class="btn btn-primary" href="mailto:print3d4you.project@gmail.com">Prepara email di richiesta →</a><p class="quote-hint">Si apre la tua applicazione email con i dettagli: controllali e aggiungi il tuo messaggio prima di inviare. Il preventivo verrà confermato dopo la valutazione.</p><p><a href="richiesta.html">Preferisco richiedere un altro progetto</a></p>
+      <h2 id="selected-title"></h2>
+      <dl id="selected-details" class="selection-details"></dl>
+      <a id="email-selection" class="btn btn-primary" href="mailto:print3d4you.project@gmail.com">Apri email con il riepilogo</a>
+      <p id="email-help">Aggiungi la località di consegna e invia l’email.</p>
+      <p><a href="richiesta.html">Preventivo per una stampa su misura</a></p>
     </section>
+    <div id="custom-request-form">
     <p class="form-help">File accettati: STL, OBJ e 3MF, fino a 10 MB. Per file più grandi puoi inserire un link condivisibile nella descrizione. Non sai quale materiale usare? Scrivi “Consigliatemi voi”.</p>
     <div class="form-card">
       <iframe
@@ -72,6 +73,7 @@ gtag("config", "G-C6DGYZ65X0");
     </div>
     <p class="form-help">Se il modulo non si carica, <a href="https://tally.so/r/ZjYary" target="_blank" rel="noopener noreferrer">aprilo in una nuova scheda</a>.</p>
     <noscript><p><a href="https://tally.so/r/ZjYary">Apri il modulo di richiesta</a> per inviare il tuo progetto.</p></noscript>
+    </div>
     <section class="legal-mini" aria-labelledby="legal-info-title">
       <h2 id="legal-info-title">Informazioni importanti</h2>
       <p>I dati che inserisci nel modulo sono trattati per gestire la tua richiesta e per ricontattarti. Il modulo è fornito da un servizio esterno (Tally): per i dettagli sul trattamento dei dati da parte loro vedi le informative sul sito del fornitore.</p>

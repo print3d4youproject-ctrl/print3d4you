@@ -215,7 +215,6 @@ details p{ margin:16px 0 0; }
 .request-selection .eyebrow{ margin-bottom:10px; }
 .request-selection p{ font-size:.9rem; margin:14px 0; }
 button.btn{ font:inherit; font-weight:600; cursor:pointer; }
-#copy-status{ display:block; margin-top:10px; font-size:.85rem; }
 @media(max-width:1050px){ .nav{ gap:16px; flex-wrap:wrap; } .nav ul{ gap:16px; } .hero-split{ gap:28px; } }
 @media(max-width:900px){
   .nav{ position:relative; }
@@ -269,11 +268,10 @@ button.btn{ font:inherit; font-weight:600; cursor:pointer; }
 .quick-quote-form{display:grid;gap:12px;margin-top:18px;}
 .quick-quote-form label{display:grid;gap:7px;font-size:.8rem;color:var(--text);}
 .quick-quote-form label span{font-weight:400;color:var(--text-dim);}
-.quick-quote-form input,.quick-quote-form select{width:100%;min-width:0;background:#0b0d12;border:1px solid #3d4658;border-radius:7px;padding:10px;color:var(--text);font:inherit;}
-.quick-quote-form input:focus,.quick-quote-form select:focus{outline:2px solid #7da9ff;outline-offset:2px;}
+.quick-quote-form input,.quick-quote-form select,.quick-quote-form textarea{width:100%;min-width:0;background:#0b0d12;border:1px solid #3d4658;border-radius:7px;padding:10px;color:var(--text);font:inherit;}
+.quick-quote-form input:focus,.quick-quote-form select:focus,.quick-quote-form textarea:focus{outline:2px solid #7da9ff;outline-offset:2px;}
 .quote-fields{display:grid;grid-template-columns:85px minmax(0,1fr);gap:12px;}
 .quote-hint{font-size:.77rem!important;line-height:1.6!important;color:var(--text-dim);margin:0!important;}
-.quick-quote-form button{font:inherit;cursor:pointer;border:0;text-align:left;line-height:1.6;}
 .collector-section{padding:40px 0 64px;}
 .collector-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
 .collector-card{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:26px;display:flex;flex-direction:column;align-items:flex-start;}
@@ -324,7 +322,7 @@ button.btn{ font:inherit; font-weight:600; cursor:pointer; }
 .set-product input,.set-summary input,.set-summary select,.set-summary textarea{width:100%;min-width:0;background:#0c1018;border:1px solid #48556b;border-radius:7px;padding:10px;color:#fff;font:inherit;}
 .set-summary{position:sticky;top:110px;border:1px solid #3f5170;border-radius:15px;background:#121a29;padding:24px;}.set-summary h2{font-size:1.4rem;margin:0 0 22px;}.set-summary label{display:grid;gap:8px;margin:18px 0;font-size:.83rem;}.set-summary label span{color:var(--text-dim);font-size:.75rem;}.set-summary .btn{width:100%;margin:18px 0 12px;}.set-summary .btn:disabled{opacity:.45;cursor:not-allowed;}.set-summary-line{display:flex;gap:16px;justify-content:space-between;font-size:.82rem;line-height:1.6;margin:12px 0;}.set-summary-line strong{white-space:nowrap;font-weight:500;}
 #set-totals{border-top:1px solid #3b4860;padding-top:12px;margin-top:20px;}#set-totals p{display:flex;justify-content:space-between;gap:12px;font-size:.83rem;color:var(--text-dim);line-height:1.6;}#set-totals .set-grand-total{color:#fff;font-size:1.2rem;border-top:1px solid #3b4860;padding-top:15px;}#set-totals .discount-value{color:#b7e6c6;}#set-totals .set-saving-hint{color:#bdd3ff;display:block;}
-.selection-details dd{white-space:pre-line;}.request-full-text{width:100%;box-sizing:border-box;padding:16px;border:1px solid #4c5f7c;background:#0d1420;color:#dce7fa;border-radius:8px;font:inherit;font-size:.82rem;line-height:1.7;margin:16px 0;resize:vertical;}
+.selection-details dd{white-space:pre-line;}
 @media(max-width:900px){.set-layout{grid-template-columns:1fr;}.set-summary{position:static;}.collector-grid-two{grid-template-columns:1fr;}}
 @media(max-width:480px){.set-product{grid-template-columns:64px minmax(0,1fr) 64px;gap:10px;padding:10px;}.set-product img{width:64px;height:64px;}.set-product h3{font-size:.82rem;}.set-product input{padding:9px 5px;}.set-summary{padding:20px;}}
 
@@ -415,3 +413,59 @@ button.btn{ font:inherit; font-weight:600; cursor:pointer; }
   .product-carousel:hover button,.product-carousel:focus-within button{opacity:1}
 }
 @media(max-width:640px){.search-results{grid-template-columns:1fr;}.search-controls .btn{padding:12px 18px;}}
+
+
+/* Avvicina i supporti vuoti nelle schede mantenendo accessibile la foto intera. */
+.product-carousel .img-wrap img:not(.carousel-backdrop)[src*="/espo_"] {
+  transform: scale(1.32);
+  filter: brightness(1.12) contrast(1.04);
+}
+
+.quick-quote-form textarea{resize:vertical}
+
+.quick-quote-form {
+  gap: 11px;
+  margin-top: 12px;
+}
+.quick-quote-form .quote-field-title {
+  color: var(--text);
+}
+.quote-field-title small {
+  margin-left: 4px;
+  color: var(--text-dim);
+}
+.quick-quote-form .quote-hint {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0b0d12;
+}
+.quick-quote-form .quote-hint strong {
+  color: var(--text);
+}
+.quick-quote-form .quote-hint small {
+  grid-column: 1 / -1;
+  font-size: inherit;
+}
+.quick-quote-form .quote-submit {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 13px;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+.quick-quote-form .quote-multiple {
+  justify-self: start;
+  font-size: .8rem;
+  color: var(--text-dim);
+  text-underline-offset: 3px;
+}
+.quick-quote-form .quote-multiple:hover {
+  color: var(--text);
+}

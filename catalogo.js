@@ -10,7 +10,7 @@ window.PRINT_CATALOG = [
     "id": "giochi-2",
     "name": "Espositore PS1 Platinum",
     "type": "giochi",
-    "image": "site_images/giochi-ambientati/ps1-platinum.webp",
+    "image": "site_images/giochi-ambientati/ps1-platinum-corretta.png",
     "price": 500
   },
   {

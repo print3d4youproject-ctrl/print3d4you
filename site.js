@@ -236,6 +236,12 @@
     }, 5000);
   }
   const money = cents => new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(cents / 100);
+  const shippingFor = quantity => quantity > 0 && quantity <= 10 ? 550 : null;
+  const shippingLabel = quantity => {
+    const cost = shippingFor(quantity);
+    return cost === null ? 'Costo comunicato via email' : money(cost);
+  };
+
   const discountFor = count => count >= 5 ? 20 : count >= 3 ? 10 : 0;
   const normaliseItems = raw => {
     const quantities = new Map();
@@ -296,10 +302,15 @@
         add('Subtotale', money(totals.gross));
         add('Sconto ' + totals.rate + '%', '−' + money(totals.discount), 'discount-value');
         add('Totale supporti', money(totals.net), 'set-grand-total');
-        add('Spedizione', 'Esclusa');
+
       } else if (totals.count) {
         add('Sconto previsto', totals.rate + '% sui supporti');
         const note = document.createElement('p'); note.textContent = 'Il totale sarà disponibile quando saranno definiti tutti i prezzi.'; panel.append(note);
+      }
+      if (totals.count) {
+        add('Spedizione', shippingLabel(totals.count));
+        const shipping = shippingFor(totals.count);
+        if (totals.complete && shipping !== null) add('Totale con spedizione', money(totals.net + shipping), 'set-grand-total');
       }
       if (totals.count && totals.count < 3) { const note = document.createElement('p'); note.className = 'set-saving-hint'; note.textContent = 'Aggiungi ' + (3 - totals.count) + ' support' + (3 - totals.count === 1 ? 'o' : 'i') + ' per lo sconto del 10%.'; panel.append(note); }
       if (totals.count >= 3 && totals.count < 5) { const note = document.createElement('p'); note.className = 'set-saving-hint'; note.textContent = 'Con ' + (5 - totals.count) + ' pezz' + (5 - totals.count === 1 ? 'o' : 'i') + ' in più passi al 20%.'; panel.append(note); }
@@ -313,6 +324,51 @@
     updateSet();
   }
 
+  function productRequest(params) {
+    const name = (params.get('prodotto') || '').trim().slice(0, 140);
+    const variant = (params.get('variante') || '').trim().slice(0, 200);
+    const quantity = Number(params.get('quantita'));
+    const validQuantity = Number.isInteger(quantity) && quantity >= 1 && quantity <= 999;
+    const lookupName = name === 'Stand PS2 Slim / Fat' && variant
+      ? 'Stand ' + ({ Slim: 'PS2 Slim', 'Fat (PS2 originale)': 'PS2 Fat' }[variant] || variant)
+      : name;
+    const unit = catalog.find(item => item.name === lookupName && Number.isInteger(item.price));
+    const rows = [];
+    if (variant) rows.push(['Versione', variant]);
+    if (validQuantity) {
+      rows.push(['Quantità', String(quantity)]);
+      if (unit) {
+        const totals = totalsFor([{ product: unit, quantity }]);
+        if (totals.rate) rows.push(['Sconto ' + totals.rate + '%', '−' + money(totals.discount)]);
+        rows.push(['Totale supporti', money(totals.net)]);
+        const shipping = shippingFor(quantity);
+        if (shipping !== null) rows.push(['Totale con spedizione', money(totals.net + shipping)]);
+      }
+      rows.push(['Spedizione', shippingLabel(quantity)]);
+    }
+    const notes = (params.get('note') || '').trim().slice(0, 500);
+    if (notes) rows.push(['Note', notes]);
+    return rows;
+  }
+
+  function orderEmail(name, rows) {
+    const emailText = value => value.replace(/€/g, 'EUR')
+      .replace(/[’‘]/g, "'").replace(/[–—−]/g, '-').replace(/×/g, 'x')
+      .replace(/\p{Zs}/gu, ' ').normalize('NFD').replace(/\p{M}/gu, '');
+    const summary = ['Prodotto: ' + name, ...rows.map(([label, value]) => label + ': ' + value)].join('\r\n');
+    const subject = "Richiesta d'acquisto - " + emailText(name);
+    const body = 'Ciao DAMA_Lab, vorrei acquistare:\r\n\r\n' + emailText(summary) + '\r\n\r\nLocalita di consegna:\r\n';
+    return 'mailto:print3d4you.project@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  document.querySelectorAll('.quick-quote-form').forEach(form => {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const values = new URLSearchParams(new FormData(form));
+      location.href = orderEmail(values.get('prodotto'), productRequest(values));
+    });
+  });
+
   const selection = document.querySelector('#request-selection');
   const params = new URLSearchParams(location.search);
   const product = params.get('prodotto');
@@ -321,12 +377,15 @@
     let chosen = [];
     try { chosen = normaliseItems(JSON.parse((params.get('selezione') || '[]').slice(0, 10000))); } catch {}
     selection.hidden = false;
+    document.querySelector('.req-wrap h1').textContent = 'Riepilogo della richiesta';
+    document.querySelector('#request-lead').textContent = 'Controlla i dettagli della tua richiesta.';
+    document.querySelector('#custom-request-form').hidden = true;
     document.querySelector('#selected-title').textContent = name;
     if (/^Set /i.test(name) && !chosen.length) {
       const notice = document.createElement('p'); notice.textContent = 'Per preparare un preventivo completo, scegli prima i modelli e le quantità del tuo set.';
       const link = document.createElement('a'); link.className = 'btn btn-primary'; link.href = 'componi-set.html'; link.textContent = 'Scegli i supporti del set →';
       document.querySelector('#selected-details').append(notice, link);
-      document.querySelector('#copy-product').hidden = true;
+      document.querySelector('#email-help').hidden = true;
       document.querySelector('#email-selection').hidden = true;
       return;
     }
@@ -334,35 +393,26 @@
     if (chosen.length) {
       rows.push(['Composizione', chosen.map(({ product, quantity }) => quantity + ' × ' + product.name + (Number.isInteger(product.price) ? ' — ' + money(product.price) + '/pezzo' : '')).join('\n')]);
       const totals = totalsFor(chosen);
-      rows.push(['Quantità totale', String(totals.count)]);
-      if (totals.complete) rows.push(['Subtotale supporti', money(totals.gross)], ['Sconto ' + totals.rate + '%', '−' + money(totals.discount)], ['Totale supporti', money(totals.net)], ['Spedizione', 'Esclusa, da confermare nel preventivo']);
-      else rows.push(['Sconto previsto', totals.rate + '% sui supporti; prezzo finale da definire']);
+      rows.push(['Quantità totale', String(totals.count)], ['Spedizione', shippingLabel(totals.count)]);
+      if (totals.complete) {
+        if (totals.rate) rows.push(['Sconto ' + totals.rate + '%', '−' + money(totals.discount)]);
+        rows.push(['Totale supporti', money(totals.net)]);
+        const shipping = shippingFor(totals.count);
+        if (shipping !== null) rows.push(['Totale con spedizione', money(totals.net + shipping)]);
+      } else if (totals.rate) {
+        rows.push(['Sconto previsto', totals.rate + '% sui supporti']);
+      }
     }
-    const fields = [['variante', 'Versione'], ['quantita', 'Quantità'], ['colori', 'Colori'], ['preferenze', 'Preferenze colore'], ['materiale', 'Materiale']];
+    if (!chosen.length) rows.push(...productRequest(params));
+    const fields = [['colori', 'Colori'], ['preferenze', 'Preferenze colore'], ['materiale', 'Materiale']];
     fields.forEach(([key, label]) => {
       const value = (params.get(key) || '').trim().slice(0, key === 'preferenze' ? 1000 : 200);
-      if (key === 'quantita' && (!/^\d+$/.test(value) || Number(value) < 1 || Number(value) > 999)) return;
       if (value) rows.push([label, value]);
     });
-    const quantity = Number(params.get('quantita'));
-    const variant = params.get('variante') || '';
-    const lookupName = name === 'Stand PS2 Slim / Fat' ? (variant === 'Slim' ? 'Stand PS2 Slim' : variant === 'Fat (PS2 originale)' ? 'Stand PS2 Fat' : 'Stand ' + variant) : name;
-    const unit = catalog.find(item => item.name === lookupName && Number.isInteger(item.price));
-    if (!chosen.length && unit && Number.isInteger(quantity) && quantity >= 1 && quantity <= 999) {
-      const totals = totalsFor([{ product: unit, quantity }]);
-      rows.push(['Prezzo unitario standard', money(unit.price)], ['Subtotale supporti', money(totals.gross)], ['Sconto ' + totals.rate + '%', '−' + money(totals.discount)], ['Totale supporti', money(totals.net)], ['Spedizione', 'Esclusa, da confermare nel preventivo']);
-    }
-    const summary = ['Prodotto: ' + name, ...rows.map(([label, value]) => label + ': ' + value)].join('\n');
     const details = document.querySelector('#selected-details');
     rows.forEach(([label, value]) => { const item = document.createElement('div'); const term = document.createElement('dt'); term.textContent = label; const description = document.createElement('dd'); description.textContent = value; item.append(term, description); details.append(item); });
-    const fullText = document.createElement('textarea'); fullText.readOnly = true; fullText.rows = Math.min(16, summary.split('\n').length + 1); fullText.value = summary; fullText.className = 'request-full-text'; fullText.setAttribute('aria-label', 'Testo completo della richiesta');
-    details.after(fullText);
-    document.querySelector('#email-selection').href = 'mailto:print3d4you.project@gmail.com?subject=' + encodeURIComponent('Richiesta preventivo — ' + name) + '&body=' + encodeURIComponent('Ciao DAMA_Lab, vorrei un preventivo per:\n\n' + summary + '\n\nAltre informazioni e località di consegna:\n');
-    document.querySelector('#copy-product').addEventListener('click', async () => {
-      const status = document.querySelector('#copy-status');
-      try { await navigator.clipboard.writeText(summary); status.textContent = 'Richiesta completa copiata: incollala nel modulo.'; }
-      catch { fullText.focus(); fullText.select(); status.textContent = 'Testo selezionato: premi Ctrl+C (o Copia) e incollalo nel modulo.'; }
-    });
+    document.querySelector('#email-selection').href = orderEmail(name, rows);
+
   }
 
 })();
